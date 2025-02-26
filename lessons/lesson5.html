@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: Breadboard Basics | Circuit Theory & Robotics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Circuit Theory & Robotics</h1>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Lesson 5: Breadboard Basics</h2>
+            
+            <section>
+                <h3>Introduction</h3>
+                <p>Breadboards are essential tools for prototyping electronic circuits without the need for soldering. They allow quick assembly, testing, and modification of circuits, making them invaluable for learning electronics and developing robotics projects.</p>
+                <p>In this lesson, we'll explore how breadboards work, how to use them effectively, and how to build your first simple circuits using this versatile prototyping tool.</p>
+            </section>
+            
+            <section>
+                <h3>What is a Breadboard?</h3>
+                <p>A breadboard (or solderless breadboard) is a reusable device for creating temporary electrical circuits without soldering. It consists of a plastic board with a grid of interconnected metal clips beneath holes where components and wires can be inserted.</p>
+                
+                <h4>History and Name Origin</h4>
+                <p>The term "breadboard" comes from early electronics when hobbyists would literally hammer nails or pins into wooden boards (often actual bread cutting boards) and connect components with wire wrapped around these pins. Modern breadboards evolved from this concept but offer much more convenience.</p>
+                
+                <h4>Types of Breadboards</h4>
+                <p>Breadboards come in various sizes and configurations:</p>
+                <ul>
+                    <li><strong>Full-size breadboards:</strong> Typically have 60-65 rows with power rails on both sides</li>
+                    <li><strong>Half-size breadboards:</strong> Usually 30 rows with power rails</li>
+                    <li><strong>Mini breadboards:</strong> Small units with around 17 rows, often without power rails</li>
+                    <li><strong>Breadboard systems:</strong> Multiple breadboards connected together with binding posts and other features</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Breadboard Layout and Connections</h3>
+                
+                <h4>Power Rails</h4>
+                <p>Most breadboards have power rails running along the sides, marked with red (+) and blue (-) lines. These provide continuous connections running the length of the breadboard for power distribution.</p>
+                <div class="note-box">
+                    <strong>Important:</strong> The power rails on the top and bottom of a breadboard are usually not connected to each other unless you add a jumper wire between them. Always verify continuity if you need power distributed to all rails.
+                </div>
+                
+                <h4>Terminal Strips</h4>
+                <p>The main grid of the breadboard consists of terminal strips where components are placed. These have some key characteristics:</p>
+                <ul>
+                    <li>Vertical columns (usually labeled with letters) are connected in groups of 5 holes</li>
+                    <li>A central divide (channel) splits the breadboard into two halves</li>
+                    <li>Rows across this divide are NOT connected</li>
+                    <li>Rows are typically labeled with numbers</li>
+                </ul>
+                
+                <h4>Internal Connections</h4>
+                <p>The internal connection pattern of a typical breadboard is as follows:</p>
+                <div class="code-block">
+                    Power Rail: Horizontal connection
+                    a b c d e | f g h i j
+                    ×-×-×-×-× | ×-×-×-×-×   Row 1
+                    ×-×-×-×-× | ×-×-×-×-×   Row 2
+                    ×-×-×-×-× | ×-×-×-×-×   Row 3
+                    Power Rail: Horizontal connection
+                </div>
+                <p>Where holes connected with a dash (-) are electrically connected to each other.</p>
+            </section>
+            
+            <section>
+                <h3>Using a Breadboard</h3>
+                
+                <h4>Placement of Components</h4>
+                <p>When placing components on a breadboard:</p>
+                <ul>
+                    <li>Integrated Circuits (ICs) straddle the center channel with pins on either side</li>
+                    <li>Components like resistors, LEDs, and capacitors connect across different rows</li>
+                    <li>Power and ground connections should connect to the power rails</li>
+                    <li>Jumper wires create connections between different parts of the circuit</li>
+                </ul>
+                
+                <h4>Tips for Effective Breadboard Use</h4>
+                <ul>
+                    <li><strong>Use color-coded wires:</strong> Red for positive power, black or blue for ground, and other colors for signals</li>
+                    <li><strong>Keep wires short and organized:</strong> Long, messy wires can create hard-to-diagnose problems</li>
+                    <li><strong>Plan your layout:</strong> Try to place components logically to minimize wire crossings</li>
+                    <li><strong>Leave space for test points:</strong> You may need to probe various points with a multimeter</li>
+                    <li><strong>Document your circuit:</strong> Take photos or draw diagrams of your working circuits</li>
+                </ul>
+                
+                <div class="note-box">
+                    <strong>Tip:</strong> When working with complex circuits, build and test one section at a time. This makes troubleshooting much easier when problems arise.
+                </div>
+            </section>
+            
+            <section>
+                <h3>Common Breadboard Issues and Solutions</h3>
+                <p>Even experienced electronics hobbyists encounter issues when using breadboards. Here are some common problems and their solutions:</p>
+                
+                <h4>Poor Connections</h4>
+                <ul>
+                    <li><strong>Problem:</strong> Components or wires not making good contact with the breadboard</li>
+                    <li><strong>Solution:</strong> Ensure wires are stripped properly and components are firmly pressed into the holes</li>
+                </ul>
+                
+                <h4>Accidentally Connected Points</h4>
+                <ul>
+                    <li><strong>Problem:</strong> Unintended connections between adjacent rows</li>
+                    <li><strong>Solution:</strong> Double-check your wiring and use a multimeter to verify connections</li>
+                </ul>
+                
+                <h4>Power Distribution Issues</h4>
+                <ul>
+                    <li><strong>Problem:</strong> Voltage drops across the breadboard</li>
+                    <li><strong>Solution:</strong> Add multiple power connections to different sections of the power rails</li>
+                </ul>
+                
+                <h4>Breadboard Wear</h4>
+                <ul>
+                    <li><strong>Problem:</strong> Holes becoming loose after many insertions</li>
+                    <li><strong>Solution:</strong> Use a new section of the breadboard or replace it if extensively worn</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Your First Breadboard Circuit: LED with Current-Limiting Resistor</h3>
+                <p>Let's create a simple circuit on a breadboard to demonstrate its use. We'll connect an LED with a current-limiting resistor to a power source.</p>
+                
+                <h4>Components Needed</h4>
+                <ul>
+                    <li>Breadboard</li>
+                    <li>LED (any color)</li>
+                    <li>220Ω or 330Ω resistor</li>
+                    <li>Power source (3-5V DC, such as batteries or a power supply)</li>
+                    <li>Jumper wires</li>
+                </ul>
+                
+                <h4>Step-by-Step Instructions</h4>
+                <ol>
+                    <li>Connect the positive terminal of your power source to the positive (red) power rail of the breadboard</li>
+                    <li>Connect the negative terminal of your power source to the negative (blue) power rail</li>
+                    <li>Place one end of the resistor in a hole connected to the positive power rail</li>
+                    <li>Place the other end of the resistor in an empty row</li>
+                    <li>Insert the anode (longer leg) of the LED in the same row as the resistor end</li>
+                    <li>Insert the cathode (shorter leg) of the LED in another empty row</li>
+                    <li>Connect a jumper wire from the row with the LED cathode to the negative power rail</li>
+                </ol>
+                
+                <p>When power is applied, the LED should light up. If it doesn't, check that the LED is oriented correctly (LEDs are polarized and only work in one direction).</p>
+                
+                <div class="note-box">
+                    <strong>Safety Note:</strong> Always include a current-limiting resistor when using LEDs. Without a resistor, the LED can draw too much current and burn out quickly.
+                </div>
+            </section>
+            
+            <section>
+                <h3>Building More Complex Circuits</h3>
+                <p>As you progress, you can build increasingly complex circuits on breadboards:</p>
+                
+                <h4>Multiple LEDs</h4>
+                <p>Try connecting several LEDs in parallel, each with its own current-limiting resistor. This can be the beginning of status indicators for your robot.</p>
+                
+                <h4>Integration with Microcontrollers</h4>
+                <p>Microcontrollers like Arduino can be placed on breadboards (or connected via jumper wires) to control circuits. Pins from the microcontroller can control LEDs, motors, and read sensors.</p>
+                
+                <h4>Sensor Circuits</h4>
+                <p>Light sensors, temperature sensors, and distance sensors can all be prototyped on breadboards before permanent installation in a robot.</p>
+            </section>
+            
+            <section>
+                <h3>Breadboards in Robotics Projects</h3>
+                <p>While breadboards are primarily for prototyping, they can serve several roles in robotics:</p>
+                
+                <h4>Rapid Prototyping</h4>
+                <p>Test circuit ideas quickly before committing to soldered versions</p>
+                
+                <h4>Educational Platform</h4>
+                <p>Learn and teach electronics concepts with easily modified circuits</p>
+                
+                <h4>Testing Components</h4>
+                <p>Verify that new components work correctly before incorporating them into your robot</p>
+                
+                <h4>Temporary Robot Extensions</h4>
+                <p>Add experimental features to existing robots for testing</p>
+                
+                <div class="note-box">
+                    <strong>Note:</strong> While breadboards are excellent for prototyping and learning, they are not suitable for permanent installations in robots that will move or be subjected to vibration. For final robot builds, consider soldered perfboards, printed circuit boards (PCBs), or secure wire connections.
+                </div>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>Build a circuit with two LEDs that alternately blink (when one is on, the other is off)</li>
+                    <li>Create a voltage divider circuit on your breadboard and measure the output voltage</li>
+                    <li>Connect a button on the breadboard that turns an LED on when pressed</li>
+                    <li>Draw a diagram of a breadboard showing its internal connection pattern</li>
+                    <li>Design a breadboard layout for a basic H-bridge motor driver circuit</li>
+                </ol>
+                <p>Solutions will be provided in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Solutions to Lesson 4 Exercises</h3>
+                <p>Coming soon...</p>
+            </section>
+            
+            <section>
+                <h3>Summary</h3>
+                <p>In this lesson, we've covered:</p>
+                <ul>
+                    <li>What breadboards are and how they originated</li>
+                    <li>The internal connection structure of breadboards</li>
+                    <li>How to effectively use breadboards for circuit prototyping</li>
+                    <li>Common issues and their solutions</li>
+                    <li>Building a simple LED circuit</li>
+                    <li>Applications of breadboards in robotics projects</li>
+                </ul>
+                <p>Breadboards are an invaluable tool for learning electronics and developing robotics projects. In the next lesson, we'll explore LEDs and digital outputs in more detail, building upon the foundation we've established here.</p>
+            </section>
+        </article>
+
+        <div class="lesson-navigation">
+            <a href="lesson4.html" class="prev-next-button">← Previous: Circuit Components</a>
+            <a href="lesson6.html" class="prev-next-button">Next: LEDs & Digital Outputs →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Circuit Theory & Robotics. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

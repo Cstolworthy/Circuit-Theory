@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7: Buttons & Switches | Circuit Theory & Robotics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Circuit Theory & Robotics</h1>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Lesson 7: Buttons & Switches</h2>
+            
+            <section>
+                <h3>Introduction</h3>
+                <p>Buttons and switches are fundamental input components that allow users to interact with electronic circuits and robots. They provide a physical interface for controlling devices, triggering actions, and selecting modes of operation. In this lesson, we'll explore various types of buttons and switches, learn how to integrate them into circuits, and discover techniques for reliable input detection.</p>
+                <p>Understanding these components is crucial for building interactive robotic systems that can respond to user commands and environmental conditions.</p>
+            </section>
+            
+            <section>
+                <h3>Understanding Switches and Buttons</h3>
+                
+                <h4>What is a Switch?</h4>
+                <p>A switch is an electromechanical device that interrupts or diverts current flow in a circuit. At its most basic, a switch has two states:</p>
+                <ul>
+                    <li><strong>Open:</strong> Current cannot flow (OFF state)</li>
+                    <li><strong>Closed:</strong> Current can flow (ON state)</li>
+                </ul>
+                
+                <h4>Buttons vs. Switches</h4>
+                <p>While the terms are sometimes used interchangeably, there is a technical distinction:</p>
+                <ul>
+                    <li><strong>Button:</strong> A momentary switch that returns to its default position when released (like a doorbell)</li>
+                    <li><strong>Switch:</strong> A device that maintains its position until physically toggled again (like a light switch)</li>
+                </ul>
+                <p>In electronics discussions, "button" typically refers to momentary switches, while "switch" may refer to either type depending on context.</p>
+            </section>
+            
+            <section>
+                <h3>Switch Terminology</h3>
+                
+                <h4>Contact Configuration</h4>
+                <p>Switches are categorized by their pole and throw configuration:</p>
+                <ul>
+                    <li><strong>Pole:</strong> The number of separate circuits a switch can control</li>
+                    <li><strong>Throw:</strong> The number of positions or connections each pole can connect to</li>
+                </ul>
+                
+                <h4>Common Switch Types</h4>
+                <ul>
+                    <li><strong>SPST (Single Pole, Single Throw):</strong> The simplest switch, with one input and one output. Examples include basic toggle switches and slide switches.</li>
+                    <li><strong>SPDT (Single Pole, Double Throw):</strong> One input that can connect to either of two outputs. Useful for selecting between two options or creating three-way switches.</li>
+                    <li><strong>DPST (Double Pole, Single Throw):</strong> Controls two separate circuits that activate simultaneously. Often used for controlling higher voltage devices while ensuring both lines are disconnected.</li>
+                    <li><strong>DPDT (Double Pole, Double Throw):</strong> Controls two separate circuits, each with two possible positions. Frequently used in H-bridge motor control circuits.</li>
+                </ul>
+                
+                <h4>Switch States</h4>
+                <p>Switches can have different default states:</p>
+                <ul>
+                    <li><strong>Normally Open (NO):</strong> The circuit is open (disconnected) by default and closes when the switch is activated</li>
+                    <li><strong>Normally Closed (NC):</strong> The circuit is closed (connected) by default and opens when the switch is activated</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Types of Buttons and Switches</h3>
+                
+                <h4>Tactile Switches (Push Buttons)</h4>
+                <p>These small, momentary switches are commonly used in electronics projects due to their low cost and ease of use. They provide tactile feedback when pressed.</p>
+                <ul>
+                    <li>Typically have 4 pins (with internal connections making them functionally 2-pin devices)</li>
+                    <li>Available in various actuation forces (how hard you need to press)</li>
+                    <li>Common in keyboards, remote controls, and user interfaces</li>
+                </ul>
+                
+                <h4>Toggle Switches</h4>
+                <p>These maintain their position until manually switched again. They have a lever that is flipped between positions.</p>
+                <ul>
+                    <li>Available in various configurations (SPST, SPDT, DPDT)</li>
+                    <li>Often used for mode selection or power control</li>
+                    <li>Common in control panels and equipment interfaces</li>
+                </ul>
+                
+                <h4>Slide Switches</h4>
+                <p>Similar to toggle switches but with a sliding mechanism rather than a lever.</p>
+                <ul>
+                    <li>Lower profile than toggle switches</li>
+                    <li>Often used in consumer electronics</li>
+                    <li>Available in miniature versions for PCB mounting</li>
+                </ul>
+                
+                <h4>DIP Switches</h4>
+                <p>Dual In-line Package (DIP) switches contain multiple independent switches in a single package.</p>
+                <ul>
+                    <li>Used for configuration settings that rarely change</li>
+                    <li>Common on circuit boards for setting operational modes</li>
+                    <li>Available in various numbers of switches (2, 4, 8, etc.)</li>
+                </ul>
+                
+                <h4>Rotary Switches</h4>
+                <p>These switches select one of multiple positions by rotation.</p>
+                <ul>
+                    <li>Good for selecting from multiple options</li>
+                    <li>Available with different numbers of positions</li>
+                    <li>Used in function selection, range selection, etc.</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Specialized Switches</h3>
+                
+                <h4>Limit Switches</h4>
+                <p>Mechanical switches with a lever or button that is activated when physical contact is made. In robotics, they're often used to:</p>
+                <ul>
+                    <li>Detect end positions of moving parts</li>
+                    <li>Prevent over-travel of mechanical systems</li>
+                    <li>Sense when a mechanism has reached a specific position</li>
+                </ul>
+                
+                <h4>Reed Switches</h4>
+                <p>These switches are activated by magnetic fields:</p>
+                <ul>
+                    <li>Consist of two ferromagnetic contacts in a sealed glass tube</li>
+                    <li>Close (or open) when a magnetic field is present</li>
+                    <li>Used in door/window sensors and position detection</li>
+                </ul>
+                
+                <h4>Tilt Switches</h4>
+                <p>These switches change state based on orientation or inclination:</p>
+                <ul>
+                    <li>Traditional tilt switches use a rolling ball or mercury to make/break contact</li>
+                    <li>Modern versions use non-toxic alternatives to mercury</li>
+                    <li>Used for orientation sensing and tamper detection</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Switch Circuits and Connections</h3>
+                
+                <h4>Pull-up and Pull-down Resistors</h4>
+                <p>When connecting switches to microcontrollers, we need to ensure a definite state (HIGH or LOW) when the switch is not activated. This is accomplished using pull-up or pull-down resistors:</p>
+                
+                <h5>Pull-up Resistor Configuration</h5>
+                <ul>
+                    <li>Resistor connects the input pin to the positive voltage (VCC)</li>
+                    <li>The switch connects the input pin to ground (GND)</li>
+                    <li>When switch is open: Input reads HIGH</li>
+                    <li>When switch is closed: Input reads LOW</li>
+                </ul>
+                
+                <h5>Pull-down Resistor Configuration</h5>
+                <ul>
+                    <li>Resistor connects the input pin to ground (GND)</li>
+                    <li>The switch connects the input pin to the positive voltage (VCC)</li>
+                    <li>When switch is open: Input reads LOW</li>
+                    <li>When switch is closed: Input reads HIGH</li>
+                </ul>
+                
+                <p>Typical resistor values for pull-up/pull-down applications range from 1k to 100kΩ, with 10kΩ being a common choice.</p>
+                
+                <div class="note-box">
+                    <strong>Note:</strong> Many microcontrollers, including Arduino, have built-in pull-up resistors that can be enabled in software, reducing the need for external components.
+                </div>
+            </section>
+            
+            <section>
+                <h3>Switch Debouncing</h3>
+                
+                <h4>Understanding Switch Bounce</h4>
+                <p>When a mechanical switch makes or breaks contact, the metal contacts may "bounce" before settling into their final position. This bouncing can cause multiple rapid transitions between on and off states, which a microcontroller might interpret as multiple button presses.</p>
+                
+                <h4>Hardware Debouncing</h4>
+                <p>Several circuit configurations can reduce or eliminate bouncing:</p>
+                <ul>
+                    <li><strong>RC Circuit:</strong> A resistor-capacitor network that smooths out the transitions</li>
+                    <li><strong>Schmitt Trigger:</strong> A circuit that prevents fluctuations around the threshold voltage</li>
+                    <li><strong>Dedicated Debounce ICs:</strong> Integrated circuits specifically designed for switch debouncing</li>
+                </ul>
+                
+                <h4>Software Debouncing</h4>
+                <p>Software techniques can also address switch bounce:</p>
+                <ul>
+                    <li><strong>Delay Method:</strong> After detecting a button press, ignore further changes for a short time (typically 20-50ms)</li>
+                    <li><strong>State Change Detection:</strong> Only register a press when the state has been stable for a certain period</li>
+                    <li><strong>Counting Method:</strong> Take multiple readings and only accept a change if a certain number of consecutive readings agree</li>
+                </ul>
+                
+                <h4>Arduino Debounce Example</h4>
+                <div class="code-block">
+                    <pre>
+const int buttonPin = 2;    // Pin connected to the button
+int buttonState;            // Current state of the button
+int lastButtonState = LOW;  // Previous state of the button
+unsigned long lastDebounceTime = 0;  // Last time the button state changed
+unsigned long debounceDelay = 50;    // Debounce time in milliseconds
+
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);  // Use internal pull-up resistor
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read the current button state
+  int reading = digitalRead(buttonPin);
+  
+  // If the state changed (due to noise or pressing)
+  if (reading != lastButtonState) {
+    // Reset the debouncing timer
+    lastDebounceTime = millis();
+  }
+  
+  // Check if enough time has passed since the last state change
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    // If the button state has actually changed
+    if (reading != buttonState) {
+      buttonState = reading;
+      
+      // Only detect the LOW state (button pressed) with pull-up resistor
+      if (buttonState == LOW) {
+        Serial.println("Button pressed!");
+      }
+    }
+  }
+  
+  // Save the current reading for the next loop iteration
+  lastButtonState = reading;
+}
+                    </pre>
+                </div>
+            </section>
+            
+            <section>
+                <h3>Working with Multiple Buttons</h3>
+                
+                <h4>Direct Connection Method</h4>
+                <p>The simplest approach is to connect each button to a separate input pin on the microcontroller. While straightforward, this can consume many input pins for complex interfaces.</p>
+                
+                <h4>Button Matrix</h4>
+                <p>For applications requiring many buttons with limited input pins, a button matrix can be used:</p>
+                <ul>
+                    <li>Buttons are arranged in rows and columns</li>
+                    <li>Each button connects a row to a column when pressed</li>
+                    <li>The microcontroller scans the matrix to determine which button was pressed</li>
+                    <li>An m×n matrix requires only m+n pins to read m×n buttons</li>
+                </ul>
+                
+                <h4>Shift Registers</h4>
+                <p>Another approach is to use shift registers (like the 74HC165) to read multiple buttons with just a few microcontroller pins.</p>
+                
+                <h4>Analog Reading</h4>
+                <p>Multiple buttons can be connected to a single analog input using different resistor values for each button. When a button is pressed, the analog reading will fall within a specific range, allowing identification of which button was pressed.</p>
+            </section>
+            
+            <section>
+                <h3>Applications in Robotics</h3>
+                
+                <h4>User Interface Controls</h4>
+                <p>Buttons and switches serve as the primary interface between humans and robots:</p>
+                <ul>
+                    <li>Start/stop buttons</li>
+                    <li>Mode selection switches</li>
+                    <li>Emergency stop buttons</li>
+                    <li>Direction control inputs</li>
+                </ul>
+                
+                <h4>Limit and Position Sensing</h4>
+                <p>Mechanical switches provide feedback about physical positions:</p>
+                <ul>
+                    <li>End-of-travel detection</li>
+                    <li>Collision detection</li>
+                    <li>Home position sensing</li>
+                    <li>Door/hatch/gripper status</li>
+                </ul>
+                
+                <h4>Calibration and Reset</h4>
+                <p>Buttons can trigger calibration routines or reset systems to known states:</p>
+                <ul>
+                    <li>Sensor calibration buttons</li>
+                    <li>System reset switches</li>
+                    <li>Reference position establishment</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>Design a circuit that uses a button to toggle an LED on and off (the LED should change state each time the button is pressed).</li>
+                    <li>Create a circuit with two buttons that control the direction of a DC motor (forward, reverse, stop).</li>
+                    <li>Implement a "long press" detection system that performs one action for a short press and a different action for a press longer than 2 seconds.</li>
+                    <li>Design a 3×3 button matrix that can detect which of 9 buttons is pressed using only 6 microcontroller pins.</li>
+                    <li>Create a circuit that uses a tilt switch to detect the orientation of your robot and signals when it's not level.</li>
+                </ol>
+                <p>Solutions will be provided in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Solutions to Lesson 6 Exercises</h3>
+                <p>Coming soon...</p>
+            </section>
+            
+            <section>
+                <h3>Summary</h3>
+                <p>In this lesson, we've covered:</p>
+                <ul>
+                    <li>The fundamental concepts of switches and buttons</li>
+                    <li>Various types of switches and their applications</li>
+                    <li>How to connect switches to microcontrollers using pull-up/pull-down resistors</li>
+                    <li>Techniques for debouncing switches in hardware and software</li>
+                    <li>Methods for working with multiple buttons efficiently</li>
+                    <li>Applications of buttons and switches in robotics projects</li>
+                </ul>
+                <p>In the next lesson, we'll explore sensors and serial communication, which will enable our robots to perceive and interact with the world around them.</p>
+            </section>
+        </article>
+
+        <div class="lesson-navigation">
+            <a href="lesson6.html" class="prev-next-button">← Previous: LEDs & Digital Outputs</a>
+            <a href="lesson8.html" class="prev-next-button">Next: Sensors & Serial Communication →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Circuit Theory & Robotics. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

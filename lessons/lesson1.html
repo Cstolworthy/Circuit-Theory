@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Number Systems | Circuit Theory & Robotics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
+    <!-- MathJax for LaTeX support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Additional styles for LaTeX content */
+        .latex-block {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Circuit Theory & Robotics</h1>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Lesson 1: Number Systems</h2>
+            
+            <section>
+                <h3>Introduction</h3>
+                <p>In the world of digital electronics and computing, different number systems are used to represent and manipulate data. While we're familiar with the decimal (base-10) system in our everyday life, computers and digital circuits operate using different number systems, primarily binary (base-2).</p>
+                <p>Understanding these number systems is fundamental to working with digital circuits and programming microcontrollers for robotics projects.</p>
+            </section>
+            
+            <section>
+                <h3>Decimal System (Base-10)</h3>
+                <p>The decimal system uses 10 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. In this system, each position represents a power of 10.</p>
+                <p>For example, the number 752 in decimal means:</p>
+                <div class="code-block latex-block">
+                    \begin{align}
+                    \textcolor{red}{7}\textcolor{red}{5}\textcolor{red}{2}_{10} &= \textcolor{red}{7} \times 10^2 + \textcolor{red}{5} \times 10^1 + \textcolor{red}{2} \times 10^0 \\
+                    &= \textcolor{red}{7} \times 100 + \textcolor{red}{5} \times 10 + \textcolor{red}{2} \times 1 \\
+                    &= 700 + 50 + 2 = \textcolor{red}{7}\textcolor{red}{5}\textcolor{red}{2}_{10}
+                    \end{align}
+                </div>
+            </section>
+            
+            <section>
+                <h3>Binary System (Base-2)</h3>
+                <p>The binary system uses only two digits: 0 and 1. Each position represents a power of 2.</p>
+                <p>For example, the binary number 1011 represents:</p>
+                <div class="code-block latex-block">
+                    \begin{align}
+                    \textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{1}\textcolor{red}{1}_2 &= \textcolor{red}{1} \times 2^3 + \textcolor{red}{0} \times 2^2 + \textcolor{red}{1} \times 2^1 + \textcolor{red}{1} \times 2^0 \\
+                    &= \textcolor{red}{1} \times 8 + \textcolor{red}{0} \times 4 + \textcolor{red}{1} \times 2 + \textcolor{red}{1} \times 1 \\
+                    &= 8 + 0 + 2 + 1 = \textcolor{red}{1}\textcolor{red}{1}_{10}
+                    \end{align}
+                </div>
+                <p>Binary is fundamental to computing because electronic circuits can easily represent the two states: ON (1) and OFF (0), using voltage levels.</p>
+                
+                <h4>Why Binary Matters in Electronics</h4>
+                <p>Digital circuits are built from components that have two stable states, making binary representation natural for electronic systems. These states can be:</p>
+                <ul>
+                    <li>High voltage (typically 3.3V or 5V) representing a 1</li>
+                    <li>Low voltage (typically 0V or ground) representing a 0</li>
+                </ul>
+                <p>All data in computers, from text and images to programs and calculations, is ultimately represented as binary digits (bits).</p>
+            </section>
+            
+            <section>
+                <h3>Hexadecimal System (Base-16)</h3>
+                <p>The hexadecimal system uses 16 digits: 0-9 and A-F (where A=10, B=11, C=12, D=13, E=14, and F=15). Each position represents a power of 16.</p>
+                <p>For example, the hexadecimal number 3A7 represents:</p>
+                <div class="code-block latex-block">
+                    \begin{align}
+                    \textcolor{red}{3}\textcolor{red}{A}\textcolor{red}{7}_{16} &= \textcolor{red}{3} \times 16^2 + \textcolor{red}{A} \times 16^1 + \textcolor{red}{7} \times 16^0 \\
+                    &= \textcolor{red}{3} \times 256 + \textcolor{red}{10} \times 16 + \textcolor{red}{7} \times 1 \\
+                    &= 768 + 160 + 7 = \textcolor{red}{9}\textcolor{red}{3}\textcolor{red}{5}_{10}
+                    \end{align}
+                </div>
+                <p>Hexadecimal is commonly used in programming and circuit design because it provides a more compact way to represent binary values. Each hexadecimal digit represents exactly 4 binary digits (bits).</p>
+                
+                <div class="note-box">
+                    <strong>Note:</strong> Hexadecimal numbers are often prefixed with "0x" in programming languages to distinguish them from decimal numbers. For example, 0x3A7.
+                </div>
+            </section>
+            
+            <section>
+                <h3>Octal System (Base-8)</h3>
+                <p>The octal system uses 8 digits: 0-7. Each position represents a power of 8.</p>
+                <p>For example, the octal number 752 represents:</p>
+                <div class="code-block latex-block">
+                    \begin{align}
+                    \textcolor{red}{7}\textcolor{red}{5}\textcolor{red}{2}_8 &= \textcolor{red}{7} \times 8^2 + \textcolor{red}{5} \times 8^1 + \textcolor{red}{2} \times 8^0 \\
+                    &= \textcolor{red}{7} \times 64 + \textcolor{red}{5} \times 8 + \textcolor{red}{2} \times 1 \\
+                    &= 448 + 40 + 2 = \textcolor{red}{4}\textcolor{red}{9}\textcolor{red}{0}_{10}
+                    \end{align}
+                </div>
+                <p>While less common in modern applications, octal was historically used in computing and can still be found in some systems.</p>
+            </section>
+            
+            <section>
+                <h3>Converting Between Number Systems</h3>
+                
+                <h4>Decimal to Binary Conversion</h4>
+                <p>To convert a decimal number to binary:</p>
+                <ol>
+                    <li>Divide the decimal number by 2</li>
+                    <li>Record the remainder (0 or 1)</li>
+                    <li>Repeat the division with the quotient until the quotient becomes 0</li>
+                    <li>Read the remainders from bottom to top</li>
+                </ol>
+                <p>Example: Convert 25 (decimal) to binary</p>
+                <div class="code-block latex-block">
+                    \begin{array}{rrcl}
+                    \text{Division} & \text{Quotient} & \text{Remainder} \\
+                    \hline
+                    \textcolor{red}{25} \div 2 & = & \textcolor{red}{12} & \textcolor{red}{1} \\
+                    \textcolor{red}{12} \div 2 & = & \textcolor{red}{6} & \textcolor{red}{0} \\
+                    \textcolor{red}{6} \div 2 & = & \textcolor{red}{3} & \textcolor{red}{0} \\
+                    \textcolor{red}{3} \div 2 & = & \textcolor{red}{1} & \textcolor{red}{1} \\
+                    \textcolor{red}{1} \div 2 & = & \textcolor{red}{0} & \textcolor{red}{1} \\
+                    \end{array}
+                    
+                    \text{Reading from bottom to top: } \textcolor{red}{1}\textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{0}\textcolor{red}{1}_2
+                </div>
+                <p>Therefore, 25 in decimal is \textcolor{red}{1}\textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{0}\textcolor{red}{1} in binary.</p>
+                
+                <h4>Binary to Decimal Conversion</h4>
+                <p>To convert a binary number to decimal, multiply each digit by its corresponding power of 2 and sum the results, as shown earlier.</p>
+                
+                <h4>Decimal to Hexadecimal Conversion</h4>
+                <p>The process is similar to decimal to binary conversion, but dividing by 16 instead of 2.</p>
+                <p>Example: Convert 250 (decimal) to hexadecimal</p>
+                <div class="code-block latex-block">
+                    \begin{array}{rrcl}
+                    \text{Division} & \text{Quotient} & \text{Remainder} \\
+                    \hline
+                    \textcolor{red}{250} \div 16 & = & \textcolor{red}{15} & \textcolor{red}{10} \text{ (A)} \\
+                    \textcolor{red}{15} \div 16 & = & \textcolor{red}{0} & \textcolor{red}{15} \text{ (F)} \\
+                    \end{array}
+                    
+                    \text{Reading from bottom to top: } \textcolor{red}{F}\textcolor{red}{A}_{16}
+                </div>
+                <p>Therefore, 250 in decimal is \textcolor{red}{F}\textcolor{red}{A} in hexadecimal.</p>
+            </section>
+            
+            <section>
+                <h3>Practical Application in Circuits</h3>
+                <p>In digital circuits, we often need to:</p>
+                <ul>
+                    <li>Represent pin states (HIGH/LOW) as binary digits</li>
+                    <li>Set bit patterns to control hardware</li>
+                    <li>Read and interpret sensor data in binary form</li>
+                    <li>Use hexadecimal to represent memory addresses and color codes</li>
+                </ul>
+                <p>For example, when setting up registers on a microcontroller, you might use hexadecimal values like:</p>
+                <div class="code-block">
+                    PORTB = 0x3F;  // Sets the first 6 pins to HIGH (binary 00111111)
+                </div>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>Convert 42 (decimal) to binary and hexadecimal</li>
+                    <li>Convert 10110 (binary) to decimal and hexadecimal</li>
+                    <li>Convert 0xC4 (hexadecimal) to binary and decimal</li>
+                    <li>Add the binary numbers 1011 and 101</li>
+                </ol>
+                <p>Solutions will be provided in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Summary</h3>
+                <p>In this lesson, we've covered:</p>
+                <ul>
+                    <li>The decimal (base-10) system we use in everyday life</li>
+                    <li>The binary (base-2) system used by computers and digital electronics</li>
+                    <li>The hexadecimal (base-16) system commonly used in programming</li>
+                    <li>The octal (base-8) system used in some computing contexts</li>
+                    <li>Methods for converting between different number systems</li>
+                    <li>Practical applications in circuit design and programming</li>
+                </ul>
+                <p>Understanding these number systems is crucial as we progress to learning about binary arithmetic and logic gates in the next lessons.</p>
+            </section>
+        </article>
+
+        <div class="lesson-navigation">
+            <a href="../index.html" class="prev-next-button">← Course Home</a>
+            <a href="lesson2.html" class="prev-next-button">Next: Binary Arithmetic →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Circuit Theory & Robotics. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

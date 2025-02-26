@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6: LEDs & Digital Outputs | Circuit Theory & Robotics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Circuit Theory & Robotics</h1>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Lesson 6: LEDs & Digital Outputs</h2>
+            
+            <section>
+                <h3>Introduction</h3>
+                <p>Light Emitting Diodes (LEDs) are one of the most common and versatile components in electronics. They provide visible feedback, act as indicators, and can even be used for communication. In this lesson, we'll explore LEDs and other digital outputs that will be essential for your robotics projects.</p>
+                <p>Digital outputs allow microcontrollers and other digital circuits to control real-world devices by switching them on and off. Understanding how to properly implement digital outputs is crucial for creating robots that can interact with their environment.</p>
+            </section>
+            
+            <section>
+                <h3>Understanding LEDs</h3>
+                
+                <h4>What is an LED?</h4>
+                <p>A Light Emitting Diode (LED) is a semiconductor device that emits light when an electric current passes through it. Unlike traditional incandescent bulbs, LEDs:</p>
+                <ul>
+                    <li>Are highly energy efficient</li>
+                    <li>Generate very little heat</li>
+                    <li>Have long lifespans (typically 50,000+ hours)</li>
+                    <li>Come in a variety of colors and sizes</li>
+                    <li>Can switch on and off very rapidly</li>
+                </ul>
+                
+                <h4>How LEDs Work</h4>
+                <p>LEDs are p-n junction diodes made from specific semiconductor materials that emit photons (light) when electrons recombine with electron holes in the device. The color of the light depends on the energy band gap of the semiconductor materials used.</p>
+                
+                <h4>LED Structure and Identification</h4>
+                <p>A typical LED has two legs:</p>
+                <ul>
+                    <li><strong>Anode (positive):</strong> Usually the longer leg</li>
+                    <li><strong>Cathode (negative):</strong> Usually the shorter leg</li>
+                </ul>
+                <p>Additionally, many LEDs have a flat spot on the rim of the case near the cathode leg, providing another way to identify polarity when the legs have been trimmed.</p>
+                <div class="note-box">
+                    <strong>Important:</strong> LEDs are polarized components and will only work when connected in the correct orientation. Reverse polarity won't typically damage an LED, but it won't light up either.
+                </div>
+            </section>
+            
+            <section>
+                <h3>LED Specifications and Selection</h3>
+                
+                <h4>Key LED Specifications</h4>
+                <ul>
+                    <li><strong>Forward Voltage (V<sub>f</sub>):</strong> The voltage drop across the LED when it's conducting (typically 1.8-3.3V, varies by color)</li>
+                    <li><strong>Forward Current (I<sub>f</sub>):</strong> The recommended operating current (typically 20mA for standard LEDs)</li>
+                    <li><strong>Maximum Current:</strong> The absolute maximum current the LED can handle without damage</li>
+                    <li><strong>Viewing Angle:</strong> The angle at which the LED emits light (wide for indicators, narrow for focused applications)</li>
+                    <li><strong>Luminous Intensity:</strong> The brightness of the LED, measured in millicandelas (mcd)</li>
+                </ul>
+                
+                <h4>Common LED Types</h4>
+                <ul>
+                    <li><strong>Standard LEDs:</strong> The most common type, available in various colors and sizes (3mm, 5mm, 10mm)</li>
+                    <li><strong>RGB LEDs:</strong> Contain red, green, and blue elements that can be controlled separately to create any color</li>
+                    <li><strong>Bi-color LEDs:</strong> Contain two different color LEDs in one package</li>
+                    <li><strong>Flashing LEDs:</strong> Include a built-in circuit that causes the LED to flash</li>
+                    <li><strong>Surface Mount (SMD) LEDs:</strong> Smaller, flat LEDs designed for automated assembly and surface mounting</li>
+                    <li><strong>LED Arrays:</strong> Multiple LEDs arranged in a specific pattern (e.g., 7-segment displays, dot matrices)</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Current Limiting for LEDs</h3>
+                
+                <h4>Why Current Limiting is Necessary</h4>
+                <p>LEDs have a very low internal resistance which means they'll draw as much current as the power supply can provide if connected directly. This excessive current will quickly burn out the LED. Therefore, we must always use a current-limiting resistor with LEDs.</p>
+                
+                <h4>Calculating the Resistor Value</h4>
+                <p>To calculate the appropriate resistor value, use Ohm's Law:</p>
+                <div class="formula">
+                    R = (V<sub>supply</sub> - V<sub>forward</sub>) / I<sub>desired</sub>
+                </div>
+                
+                <p>Where:</p>
+                <ul>
+                    <li>R is the resistor value in ohms (Ω)</li>
+                    <li>V<sub>supply</sub> is the voltage of your power source</li>
+                    <li>V<sub>forward</sub> is the forward voltage of the LED</li>
+                    <li>I<sub>desired</sub> is your target current (typically 20mA or 0.020A)</li>
+                </ul>
+                
+                <h4>Example Calculation</h4>
+                <p>For a red LED with a forward voltage of 2.0V, powered by a 5V supply, with a desired current of 20mA:</p>
+                <div class="formula">
+                    R = (5V - 2.0V) / 0.020A = 150Ω
+                </div>
+                <p>In practice, you'd use the closest standard resistor value, which would be 150Ω or 160Ω.</p>
+                
+                <div class="note-box">
+                    <strong>Tip:</strong> When in doubt, it's better to use a slightly larger resistor value than a smaller one. A larger resistor will make the LED slightly dimmer but safer, while a resistor that's too small could damage the LED.
+                </div>
+            </section>
+            
+            <section>
+                <h3>LED Circuits</h3>
+                
+                <h4>Basic LED Circuit</h4>
+                <p>The simplest LED circuit consists of:</p>
+                <ul>
+                    <li>A power source</li>
+                    <li>A current-limiting resistor</li>
+                    <li>The LED itself</li>
+                </ul>
+                <p>The circuit should connect the power source to the resistor, then to the LED anode, with the LED cathode connected to ground.</p>
+                
+                <h4>LEDs in Series</h4>
+                <p>When connecting LEDs in series:</p>
+                <ul>
+                    <li>The same current flows through all LEDs</li>
+                    <li>The required voltage equals the sum of all LED forward voltages plus the voltage drop across the resistor</li>
+                    <li>Only one current-limiting resistor is needed for the entire string</li>
+                </ul>
+                <p>The formula for calculating the resistor in a series arrangement is:</p>
+                <div class="formula">
+                    R = (V<sub>supply</sub> - (V<sub>forward1</sub> + V<sub>forward2</sub> + ... + V<sub>forwardN</sub>)) / I<sub>desired</sub>
+                </div>
+                
+                <h4>LEDs in Parallel</h4>
+                <p>When connecting LEDs in parallel:</p>
+                <ul>
+                    <li>Each LED gets the full supply voltage</li>
+                    <li>Each LED must have its own current-limiting resistor</li>
+                    <li>The total current draw is the sum of the currents through each LED</li>
+                </ul>
+                <p>For parallel LEDs, calculate each resistor separately using the standard formula.</p>
+            </section>
+            
+            <section>
+                <h3>Controlling LEDs with Digital Outputs</h3>
+                
+                <h4>Microcontroller Digital Outputs</h4>
+                <p>Microcontrollers like Arduino or Raspberry Pi have digital output pins that can be programmed to turn on or off. These pins typically operate at voltage levels of 3.3V or 5V, making them suitable for directly driving LEDs (with appropriate current-limiting resistors).</p>
+                
+                <h4>Basic LED Control</h4>
+                <p>To control an LED with a microcontroller:</p>
+                <ol>
+                    <li>Connect a current-limiting resistor to the digital output pin</li>
+                    <li>Connect the other end of the resistor to the LED anode</li>
+                    <li>Connect the LED cathode to ground</li>
+                    <li>Program the microcontroller to set the pin HIGH to turn on the LED or LOW to turn it off</li>
+                </ol>
+                
+                <h4>Arduino Example Code</h4>
+                <p>Here's a simple Arduino sketch to blink an LED connected to pin 13:</p>
+                <div class="code-block">
+                    <pre>
+void setup() {
+    pinMode(13, OUTPUT);  // Set pin 13 as an output
+}
+
+void loop() {
+    digitalWrite(13, HIGH);  // Turn the LED on
+    delay(1000);            // Wait for 1 second
+    digitalWrite(13, LOW);   // Turn the LED off
+    delay(1000);            // Wait for 1 second
+}
+                    </pre>
+                </div>
+            </section>
+            
+            <section>
+                <h3>LED Brightness Control</h3>
+                
+                <h4>Pulse Width Modulation (PWM)</h4>
+                <p>While digital outputs are binary (on or off), we can create the appearance of variable brightness by rapidly switching an LED on and off. This technique is called Pulse Width Modulation (PWM).</p>
+                
+                <p>With PWM:</p>
+                <ul>
+                    <li>The frequency stays constant (typically hundreds or thousands of Hz)</li>
+                    <li>The duty cycle (percentage of time the signal is on) varies</li>
+                    <li>Higher duty cycles create brighter LEDs</li>
+                    <li>The switching happens so fast that the human eye perceives it as a constant brightness</li>
+                </ul>
+                
+                <h4>Arduino PWM Example</h4>
+                <p>Arduino has built-in PWM capabilities on pins marked with a ~ symbol. Here's an example that gradually brightens and dims an LED:</p>
+                <div class="code-block">
+                    <pre>
+int ledPin = 9;    // LED connected to pin 9 (PWM pin)
+
+void setup() {
+    pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+    // Gradually increase brightness
+    for(int brightness = 0; brightness <= 255; brightness++) {
+        analogWrite(ledPin, brightness);
+        delay(10);
+    }
+    
+    // Gradually decrease brightness
+    for(int brightness = 255; brightness >= 0; brightness--) {
+        analogWrite(ledPin, brightness);
+        delay(10);
+    }
+}
+                    </pre>
+                </div>
+                
+                <div class="note-box">
+                    <strong>Note:</strong> The <code>analogWrite()</code> function in Arduino doesn't actually produce an analog voltage. Instead, it generates a PWM signal with a duty cycle proportional to the value provided (0-255).
+                </div>
+            </section>
+            
+            <section>
+                <h3>Other Digital Outputs</h3>
+                
+                <h4>Buzzers and Speakers</h4>
+                <p>Digital outputs can also control sound-producing components. Buzzers provide audio feedback and alerts in robotic projects. There are two main types:</p>
+                <ul>
+                    <li><strong>Active buzzers:</strong> Contain an oscillator circuit and make sound when power is applied</li>
+                    <li><strong>Passive buzzers:</strong> Require an alternating signal to produce sound, allowing for different tones</li>
+                </ul>
+                
+                <h4>Relays</h4>
+                <p>Relays are electrically operated switches that allow low-power digital outputs to control high-power devices. They use an electromagnet to mechanically operate a switch. When using relays:</p>
+                <ul>
+                    <li>Include a flyback diode to protect against voltage spikes when the relay coil is de-energized</li>
+                    <li>Use a transistor if the microcontroller can't supply enough current to drive the relay coil</li>
+                    <li>Ensure proper voltage matching between the microcontroller and relay coil</li>
+                </ul>
+                
+                <h4>Transistors for Digital Outputs</h4>
+                <p>Transistors can be used as switches to control higher-current devices from microcontroller pins. Two common types are:</p>
+                <ul>
+                    <li><strong>Bipolar Junction Transistors (BJTs):</strong> Current-controlled devices, good for simple switching</li>
+                    <li><strong>MOSFETs:</strong> Voltage-controlled devices, excellent for higher power applications</li>
+                </ul>
+                <p>When using transistors as switches, ensure they're properly biased for the application and include appropriate current-limiting resistors.</p>
+            </section>
+            
+            <section>
+                <h3>Digital Output Applications in Robotics</h3>
+                
+                <h4>Status Indicators</h4>
+                <p>LEDs provide visual feedback about robot status:</p>
+                <ul>
+                    <li>Power indicators</li>
+                    <li>Error status lights</li>
+                    <li>Operation mode indicators</li>
+                    <li>Battery level displays</li>
+                </ul>
+                
+                <h4>Light-Based Communication</h4>
+                <p>LEDs can be used for communication between robots or between robots and humans:</p>
+                <ul>
+                    <li>Infrared LEDs for remote control</li>
+                    <li>Visible light communication</li>
+                    <li>Coded light patterns</li>
+                </ul>
+                
+                <h4>Actuator Control</h4>
+                <p>Digital outputs control various robot actuators:</p>
+                <ul>
+                    <li>Motor drivers</li>
+                    <li>Solenoids</li>
+                    <li>Pneumatic valves</li>
+                    <li>Other mechanical components</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>Calculate the appropriate resistor value for a blue LED (forward voltage 3.2V) powered by a 9V battery.</li>
+                    <li>Design a circuit with three LEDs that light up in sequence, creating a "chasing" effect.</li>
+                    <li>Modify the PWM example to create a "breathing" effect where the LED smoothly transitions between off and on.</li>
+                    <li>Design a circuit that uses a button to toggle between two different LEDs.</li>
+                    <li>Create a simple LED bar graph that could be used to display sensor readings in a visual format.</li>
+                </ol>
+                <p>Solutions will be provided in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Solutions to Lesson 5 Exercises</h3>
+                <p>Coming soon...</p>
+            </section>
+            
+            <section>
+                <h3>Summary</h3>
+                <p>In this lesson, we've covered:</p>
+                <ul>
+                    <li>The fundamentals of LEDs, including how they work and their specifications</li>
+                    <li>How to properly calculate current-limiting resistors for LEDs</li>
+                    <li>Creating series and parallel LED circuits</li>
+                    <li>Controlling LEDs with microcontroller digital outputs</li>
+                    <li>Using PWM to control LED brightness</li>
+                    <li>Other digital output types including buzzers and relays</li>
+                    <li>Applications of digital outputs in robotics</li>
+                </ul>
+                <p>In the next lesson, we'll explore buttons and switches, which will allow us to add user input to our circuits and control our robot's behavior.</p>
+            </section>
+        </article>
+
+        <div class="lesson-navigation">
+            <a href="lesson5.html" class="prev-next-button">← Previous: Breadboard Basics</a>
+            <a href="lesson7.html" class="prev-next-button">Next: Buttons & Switches →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Circuit Theory & Robotics. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

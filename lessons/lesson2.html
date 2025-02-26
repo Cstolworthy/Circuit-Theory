@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: Binary Arithmetic | Circuit Theory & Robotics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Circuit Theory & Robotics</h1>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Lesson 2: Binary Arithmetic</h2>
+            
+            <section>
+                <h3>Introduction</h3>
+                <p>In the previous lesson, we learned about different number systems, with a focus on binary representation. Now, we'll explore how to perform arithmetic operations in binary, which is essential for understanding how computers and digital circuits process data.</p>
+                <p>Binary arithmetic forms the foundation of all calculations performed by digital systems, from simple calculators to complex robotics controllers.</p>
+            </section>
+            
+            <section>
+                <h3>Binary Addition</h3>
+                <p>Binary addition follows rules similar to decimal addition, but with only two digits (0 and 1):</p>
+                <ul>
+                    <li>0 + 0 = 0</li>
+                    <li>0 + 1 = 1</li>
+                    <li>1 + 0 = 1</li>
+                    <li>1 + 1 = 10 (which is 2 in decimal, written as 0 with a carry of 1)</li>
+                </ul>
+                
+                <h4>Example: Adding 1011 and 101</h4>
+                <div class="code-block">
+                     1 1 1    (carries)
+                     1 0 1 1  (first number)
+                   +   1 0 1  (second number)
+                   ---------
+                     1 0 0 0 0  (result)
+                </div>
+                <p>Let's break down this calculation step by step:</p>
+                <ol>
+                    <li>Last column: 1 + 1 = 10, write 0 and carry 1</li>
+                    <li>Second column from right: 1 (carry) + 1 + 0 = 10, write 0 and carry 1</li>
+                    <li>Third column from right: 1 (carry) + 0 + 1 = 10, write 0 and carry 1</li>
+                    <li>Fourth column from right: 1 (carry) + 1 + 0 = 10, write 0 and carry 1</li>
+                    <li>The final carry becomes the leftmost digit: 1</li>
+                </ol>
+                <p>Therefore, 1011 + 101 = 10000 (which is 11 + 5 = 16 in decimal).</p>
+                
+                <div class="note-box">
+                    <strong>Note:</strong> In digital circuits, binary addition is performed by components called "adders." A half-adder can add two bits, while a full-adder can add three bits (including a carry).
+                </div>
+            </section>
+            
+            <section>
+                <h3>Binary Subtraction</h3>
+                <p>Binary subtraction can be approached in several ways, but the most common methods are:</p>
+                
+                <h4>1. Direct Subtraction</h4>
+                <p>Rules for direct subtraction:</p>
+                <ul>
+                    <li>0 - 0 = 0</li>
+                    <li>1 - 0 = 1</li>
+                    <li>1 - 1 = 0</li>
+                    <li>0 - 1 = 1 with a borrow of 1 from the next column</li>
+                </ul>
+                
+                <h4>Example: Subtracting 101 from 1011</h4>
+                <div class="code-block">
+                     1 0 1 1  (first number)
+                   -   1 0 1  (second number)
+                   ---------
+                       1 1 0  (result)
+                </div>
+                <p>Breaking it down:</p>
+                <ol>
+                    <li>Last column: 1 - 1 = 0</li>
+                    <li>Second column from right: 1 - 0 = 1</li>
+                    <li>Third column from right: 0 - 1 = 1 with a borrow, so effectively (1)0 - 1 = 1</li>
+                    <li>Fourth column from right: 1 - 0 - 1 (the borrow) = 0</li>
+                </ol>
+                <p>Therefore, 1011 - 101 = 110 (which is 11 - 5 = 6 in decimal).</p>
+                
+                <h4>2. Two's Complement Method</h4>
+                <p>In digital systems, subtraction is often performed using the two's complement method, which allows us to subtract by adding the two's complement of the subtrahend.</p>
+                <p>To find the two's complement of a binary number:</p>
+                <ol>
+                    <li>Flip all the bits (1s become 0s, and 0s become 1s) - this is called the one's complement</li>
+                    <li>Add 1 to the result</li>
+                </ol>
+                
+                <p>Example: Subtract 101 from 1011 using two's complement</p>
+                <div class="code-block">
+                    Find two's complement of 101:
+                    - One's complement: 010
+                    - Add 1: 010 + 1 = 011
+                    
+                    Now add 1011 + 011:
+                      1 0 1 1
+                    +     0 1 1
+                    ---------
+                      1 1 1 0
+                </div>
+                <p>Since we're working with 4-bit numbers and the result has 5 bits, we ignore the carry and take only the 4 rightmost bits, which gives us 110.</p>
+                <p>Therefore, 1011 - 101 = 110 (which is 11 - 5 = 6 in decimal), matching our previous calculation.</p>
+            </section>
+            
+            <section>
+                <h3>Binary Multiplication</h3>
+                <p>Binary multiplication follows these simple rules:</p>
+                <ul>
+                    <li>0 × 0 = 0</li>
+                    <li>0 × 1 = 0</li>
+                    <li>1 × 0 = 0</li>
+                    <li>1 × 1 = 1</li>
+                </ul>
+                <p>The process is similar to decimal multiplication, but simpler because we only multiply by 0 or 1.</p>
+                
+                <h4>Example: Multiplying 101 by 11</h4>
+                <div class="code-block">
+                        1 0 1  (first number)
+                      ×   1 1  (second number)
+                    -------
+                        1 0 1  (101 × 1)
+                    + 1 0 1    (101 × 1, shifted one position left)
+                    ---------
+                      1 1 1 1  (result)
+                </div>
+                <p>Therefore, 101 × 11 = 1111 (which is 5 × 3 = 15 in decimal).</p>
+            </section>
+            
+            <section>
+                <h3>Binary Division</h3>
+                <p>Binary division follows the same principle as decimal long division, but with only binary digits.</p>
+                
+                <h4>Example: Dividing 1100 by 11</h4>
+                <div class="code-block">
+                          1 0 0  (quotient)
+                       -------
+                    1 1 ) 1 1 0 0
+                          1 1    
+                         ----
+                           0 0
+                           0 0
+                          ----
+                             0  (remainder)
+                </div>
+                <p>Therefore, 1100 ÷ 11 = 100 with a remainder of 0 (which is 12 ÷ 3 = 4 with a remainder of 0 in decimal).</p>
+            </section>
+            
+            <section>
+                <h3>Bitwise Operations</h3>
+                <p>In addition to arithmetic operations, digital systems frequently use bitwise operations, which operate on individual bits:</p>
+                
+                <h4>1. Bitwise AND (&)</h4>
+                <p>Returns 1 if both bits are 1, otherwise returns 0:</p>
+                <div class="code-block">
+                    1 0 1 1 (first number)
+                  & 1 1 0 1 (second number)
+                  -------
+                    1 0 0 1 (result)
+                </div>
+                
+                <h4>2. Bitwise OR (|)</h4>
+                <p>Returns 1 if at least one bit is 1, otherwise returns 0:</p>
+                <div class="code-block">
+                    1 0 1 1 (first number)
+                  | 1 1 0 1 (second number)
+                  -------
+                    1 1 1 1 (result)
+                </div>
+                
+                <h4>3. Bitwise XOR (^) - Exclusive OR</h4>
+                <p>Returns 1 if exactly one bit is 1 (bits are different), otherwise returns 0:</p>
+                <div class="code-block">
+                    1 0 1 1 (first number)
+                  ^ 1 1 0 1 (second number)
+                  -------
+                    0 1 1 0 (result)
+                </div>
+                
+                <h4>4. Bitwise NOT (~) - One's Complement</h4>
+                <p>Flips each bit (1 becomes 0, and 0 becomes 1):</p>
+                <div class="code-block">
+                  ~ 1 0 1 1
+                  -------
+                    0 1 0 0
+                </div>
+                
+                <h4>5. Shift Operations</h4>
+                <p>Bit shifting moves bits to the left or right:</p>
+                <ul>
+                    <li>Left Shift (<<): Shifts bits to the left, filling with 0s on the right</li>
+                    <li>Right Shift (>>): Shifts bits to the right, filling with 0s on the left (or copying the sign bit in signed numbers)</li>
+                </ul>
+                <div class="code-block">
+                    1 0 1 1 << 1 = 0 1 1 0 (left shift by 1)
+                    1 0 1 1 >> 1 = 0 1 0 1 (right shift by 1)
+                </div>
+                <p>Left shifting by n positions is equivalent to multiplying by 2^n, while right shifting is equivalent to dividing by 2^n (for unsigned numbers).</p>
+            </section>
+            
+            <section>
+                <h3>Applications in Digital Circuits</h3>
+                <p>Binary arithmetic is fundamental to how digital circuits operate:</p>
+                <ul>
+                    <li><strong>Adder Circuits:</strong> Digital adders, from half-adders to full-adders and multi-bit adders, perform binary addition in hardware.</li>
+                    <li><strong>Arithmetic Logic Units (ALUs):</strong> The core of processors, ALUs perform various arithmetic and logical operations.</li>
+                    <li><strong>Registers and Counters:</strong> These components store and manipulate binary values, often with increment or decrement operations.</li>
+                    <li><strong>Microcontroller Programming:</strong> When programming microcontrollers for robotics, we often use binary arithmetic for efficient bit manipulation, setting or clearing specific pins, etc.</li>
+                </ul>
+                
+                <div class="note-box">
+                    <strong>Practical Example:</strong> When controlling multiple LEDs connected to a single port, we can use bitwise operations to turn specific LEDs on or off without affecting others:
+                    <pre>
+    // Turn on LED connected to bit 3 without affecting other bits
+    PORTB |= 0b00001000;  // Set bit 3 using OR
+    
+    // Turn off LED connected to bit 3 without affecting other bits
+    PORTB &= ~0b00001000;  // Clear bit 3 using AND with NOT
+                    </pre>
+                </div>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>Add the binary numbers 1101 and 1011</li>
+                    <li>Subtract 1010 from 11001 using direct method and two's complement</li>
+                    <li>Multiply 1101 by 101</li>
+                    <li>Perform bitwise AND, OR, and XOR on 1100 and 1010</li>
+                    <li>Shift 10110 left by 2 positions and right by 1 position</li>
+                </ol>
+                <p>Solutions will be provided in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Solutions to Lesson 1 Exercises</h3>
+                <ol>
+                    <li>
+                        <strong>Convert 42 (decimal) to binary and hexadecimal</strong><br>
+                        Binary: 101010<br>
+                        Hexadecimal: 0x2A
+                    </li>
+                    <li>
+                        <strong>Convert 10110 (binary) to decimal and hexadecimal</strong><br>
+                        Decimal: 22 (1×16 + 0×8 + 1×4 + 1×2 + 0×1)<br>
+                        Hexadecimal: 0x16
+                    </li>
+                    <li>
+                        <strong>Convert 0xC4 (hexadecimal) to binary and decimal</strong><br>
+                        Binary: 11000100<br>
+                        Decimal: 196 (12×16 + 4×1)
+                    </li>
+                    <li>
+                        <strong>Add the binary numbers 1011 and 101</strong><br>
+                        1011 + 101 = 10000 (16 in decimal)
+                    </li>
+                </ol>
+            </section>
+            
+            <section>
+                <h3>Summary</h3>
+                <p>In this lesson, we've covered:</p>
+                <ul>
+                    <li>Binary addition and the concept of carries</li>
+                    <li>Binary subtraction using direct method and two's complement</li>
+                    <li>Binary multiplication and division</li>
+                    <li>Bitwise operations (AND, OR, XOR, NOT) and their applications</li>
+                    <li>Bit shifting operations and their relationship to multiplication and division</li>
+                    <li>Practical applications in digital circuits and microcontroller programming</li>
+                </ul>
+                <p>These binary arithmetic operations form the foundation of all digital computation. In the next lesson, we'll explore how these binary operations are implemented in hardware through logic gates, the building blocks of digital circuits.</p>
+            </section>
+        </article>
+
+        <div class="lesson-navigation">
+            <a href="lesson1.html" class="prev-next-button">← Previous: Number Systems</a>
+            <a href="lesson3.html" class="prev-next-button">Next: Logic Gates →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Circuit Theory & Robotics. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
