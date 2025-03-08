@@ -43,12 +43,12 @@
             <section>
                 <h3>Decimal System (Base-10)</h3>
                 <p>The decimal system uses 10 digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9. In this system, each position represents a power of 10.</p>
-                <p>For example, the number 752 in decimal means:</p>
-                <div class="code-block latex-block">
+                <p>For example, the number 42 in decimal means:</p>
+                <div class="latex-block">
                     \begin{align}
-                    \textcolor{red}{7}\textcolor{red}{5}\textcolor{red}{2}_{10} &= \textcolor{red}{7} \times 10^2 + \textcolor{red}{5} \times 10^1 + \textcolor{red}{2} \times 10^0 \\[5pt]
-                    &= \textcolor{red}{7} \times 100 + \textcolor{red}{5} \times 10 + \textcolor{red}{2} \times 1 \\[5pt]
-                    &= 700 + 50 + 2 = \textcolor{red}{7}\textcolor{red}{5}\textcolor{red}{2}_{10}
+                    \textcolor{red}{4}\textcolor{red}{2}_{10} &= \textcolor{red}{4} \times 10^1 + \textcolor{red}{2} \times 10^0 \\[5pt]
+                    &= \textcolor{red}{4} \times 10 + \textcolor{red}{2} \times 1 \\[5pt]
+                    &= 40 + 2 = \textcolor{red}{4}\textcolor{red}{2}_{10}
                     \end{align}
                 </div>
             </section>
@@ -56,12 +56,12 @@
             <section>
                 <h3>Binary System (Base-2)</h3>
                 <p>The binary system uses only two digits: 0 and 1. Each position represents a power of 2.</p>
-                <p>For example, the binary number 1011 represents:</p>
-                <div class="code-block latex-block">
+                <p>For example, the binary number 101010 represents:</p>
+                <div class="latex-block">
                     \begin{align}
-                    \textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{1}\textcolor{red}{1}_2 &= \textcolor{red}{1} \times 2^3 + \textcolor{red}{0} \times 2^2 + \textcolor{red}{1} \times 2^1 + \textcolor{red}{1} \times 2^0 \\[5pt]
-                    &= \textcolor{red}{1} \times 8 + \textcolor{red}{0} \times 4 + \textcolor{red}{1} \times 2 + \textcolor{red}{1} \times 1 \\[5pt]
-                    &= 8 + 0 + 2 + 1 = \textcolor{red}{1}\textcolor{red}{1}_{10}
+                    \textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{1}\textcolor{red}{0}_{2} &= \textcolor{red}{1} \times 2^5 + \textcolor{red}{0} \times 2^4 + \textcolor{red}{1} \times 2^3 + \textcolor{red}{0} \times 2^2 + \textcolor{red}{1} \times 2^1 + \textcolor{red}{0} \times 2^0 \\[5pt]
+                    &= \textcolor{red}{1} \times 32 + \textcolor{red}{0} \times 16 + \textcolor{red}{1} \times 8 + \textcolor{red}{0} \times 4 + \textcolor{red}{1} \times 2 + \textcolor{red}{0} \times 1 \\[5pt]
+                    &= 32 + 0 + 8 + 0 + 2 + 0 = \textcolor{red}{4}\textcolor{red}{2}_{10}
                     \end{align}
                 </div>
                 <p>Binary is fundamental to computing because electronic circuits can easily represent the two states: ON (1) and OFF (0), using voltage levels.</p>
@@ -78,30 +78,30 @@
             <section>
                 <h3>Hexadecimal System (Base-16)</h3>
                 <p>The hexadecimal system uses 16 digits: 0-9 and A-F (where A=10, B=11, C=12, D=13, E=14, and F=15). Each position represents a power of 16.</p>
-                <p>For example, the hexadecimal number 3A7 represents:</p>
-                <div class="code-block latex-block">
+                <p>For example, the hexadecimal number 2A represents:</p>
+                <div class="latex-block">
                     \begin{align}
-                    \textcolor{red}{3}\textcolor{red}{A}\textcolor{red}{7}_{16} &= \textcolor{red}{3} \times 16^2 + \textcolor{red}{A} \times 16^1 + \textcolor{red}{7} \times 16^0 \\[5pt]
-                    &= \textcolor{red}{3} \times 256 + \textcolor{red}{10} \times 16 + \textcolor{red}{7} \times 1 \\[5pt]
-                    &= 768 + 160 + 7 = \textcolor{red}{9}\textcolor{red}{3}\textcolor{red}{5}_{10}
+                    \textcolor{red}{2}\textcolor{red}{A}_{16} &= \textcolor{red}{2} \times 16^1 + \textcolor{red}{10} \times 16^0 \\[5pt]
+                    &= \textcolor{red}{2} \times 16 + \textcolor{red}{10} \times 1 \\[5pt]
+                    &= 32 + 10 = \textcolor{red}{4}\textcolor{red}{2}_{10}
                     \end{align}
                 </div>
                 <p>Hexadecimal is commonly used in programming and circuit design because it provides a more compact way to represent binary values. Each hexadecimal digit represents exactly 4 binary digits (bits).</p>
                 
                 <div class="note-box">
-                    <strong>Note:</strong> Hexadecimal numbers are often prefixed with "0x" in programming languages to distinguish them from decimal numbers. For example, 0x3A7.
+                    <strong>Note:</strong> Hexadecimal numbers are often prefixed with "0x" in programming languages to distinguish them from decimal numbers. For example, 0x2A.
                 </div>
             </section>
             
             <section>
                 <h3>Octal System (Base-8)</h3>
                 <p>The octal system uses 8 digits: 0-7. Each position represents a power of 8.</p>
-                <p>For example, the octal number 752 represents:</p>
-                <div class="code-block latex-block">
+                <p>For example, the octal number 52 represents:</p>
+                <div class="latex-block">
                     \begin{align}
-                    \textcolor{red}{7}\textcolor{red}{5}\textcolor{red}{2}_8 &= \textcolor{red}{7} \times 8^2 + \textcolor{red}{5} \times 8^1 + \textcolor{red}{2} \times 8^0 \\[5pt]
-                    &= \textcolor{red}{7} \times 64 + \textcolor{red}{5} \times 8 + \textcolor{red}{2} \times 1 \\[5pt]
-                    &= 448 + 40 + 2 = \textcolor{red}{4}\textcolor{red}{9}\textcolor{red}{0}_{10}
+                    \textcolor{red}{5}\textcolor{red}{2}_{8} &= \textcolor{red}{5} \times 8^1 + \textcolor{red}{2} \times 8^0 \\[5pt]
+                    &= \textcolor{red}{5} \times 8 + \textcolor{red}{2} \times 1 \\[5pt]
+                    &= 40 + 2 = \textcolor{red}{4}\textcolor{red}{2}_{10}
                     \end{align}
                 </div>
                 <p>While less common in modern applications, octal was historically used in computing and can still be found in some systems.</p>
@@ -118,43 +118,81 @@
                     <li>Repeat the division with the quotient until the quotient becomes 0</li>
                     <li>Read the remainders from bottom to top</li>
                 </ol>
-                <p>Example: Convert 25 (decimal) to binary</p>
-                <div class="code-block latex-block">
+                <p>Example: Convert 42 (decimal) to binary</p>
+                <div class="latex-block">
                     \begin{array}{|r|c|c|}
                     \hline
                     \text{Division} & \text{Quotient} & \text{Remainder} \\
                     \hline
-                    \textcolor{red}{25} \div 2 & \textcolor{red}{12} & \textcolor{red}{1} \\
-                    \textcolor{red}{12} \div 2 & \textcolor{red}{6} & \textcolor{red}{0} \\
-                    \textcolor{red}{6} \div 2 & \textcolor{red}{3} & \textcolor{red}{0} \\
-                    \textcolor{red}{3} \div 2 & \textcolor{red}{1} & \textcolor{red}{1} \\
+                    \textcolor{red}{42} \div 2 & \textcolor{red}{21} & \textcolor{red}{0} \\
+                    \textcolor{red}{21} \div 2 & \textcolor{red}{10} & \textcolor{red}{1} \\
+                    \textcolor{red}{10} \div 2 & \textcolor{red}{5} & \textcolor{red}{0} \\
+                    \textcolor{red}{5} \div 2 & \textcolor{red}{2} & \textcolor{red}{1} \\
+                    \textcolor{red}{2} \div 2 & \textcolor{red}{1} & \textcolor{red}{0} \\
                     \textcolor{red}{1} \div 2 & \textcolor{red}{0} & \textcolor{red}{1} \\
                     \hline
                     \end{array}
-                    
-                    \text{Reading from bottom to top: } \textcolor{red}{1}\textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{0}\textcolor{red}{1}_2
                 </div>
-                <p>Therefore, 25 in decimal is \textcolor{red}{1}\textcolor{red}{1}\textcolor{red}{0}\textcolor{red}{0}\textcolor{red}{1} in binary.</p>
+                
+                <p>Reading from bottom to top: 101010<sub>2</sub></p>
+                <p>Therefore, 42 in decimal is 101010<sub>2</sub> in binary.</p>
                 
                 <h4>Binary to Decimal Conversion</h4>
                 <p>To convert a binary number to decimal, multiply each digit by its corresponding power of 2 and sum the results, as shown earlier.</p>
                 
                 <h4>Decimal to Hexadecimal Conversion</h4>
                 <p>The process is similar to decimal to binary conversion, but dividing by 16 instead of 2.</p>
-                <p>Example: Convert 250 (decimal) to hexadecimal</p>
-                <div class="code-block latex-block">
+                <p>Example: Convert 42 (decimal) to hexadecimal</p>
+                <div class="latex-block">
                     \begin{array}{|r|c|c|}
                     \hline
                     \text{Division} & \text{Quotient} & \text{Remainder} \\
                     \hline
-                    \textcolor{red}{250} \div 16 & \textcolor{red}{15} & \textcolor{red}{10} \text{ (A)} \\
-                    \textcolor{red}{15} \div 16 & \textcolor{red}{0} & \textcolor{red}{15} \text{ (F)} \\
+                    \textcolor{red}{42} \div 16 & \textcolor{red}{2} & \textcolor{red}{10} \text{ (A)} \\
+                    \textcolor{red}{2} \div 16 & \textcolor{red}{0} & \textcolor{red}{2} \\
                     \hline
                     \end{array}
-                    
-                    \text{Reading from bottom to top: } \textcolor{red}{F}\textcolor{red}{A}_{16}
                 </div>
-                <p>Therefore, 250 in decimal is \textcolor{red}{F}\textcolor{red}{A} in hexadecimal.</p>
+                
+                <p>Reading from bottom to top: 2A<sub>16</sub></p>
+                <p>Therefore, 42 in decimal is 2A<sub>16</sub> in hexadecimal.</p>
+            </section>
+            
+            <section>
+                <h3>Leading and Trailing Zeros</h3>
+                <p>An important concept in number systems is understanding the effect of leading and trailing zeros:</p>
+                
+                <h4>Leading Zeros</h4>
+                <p>Adding zeros at the beginning (left side) of a number does not change its value:</p>
+                <ul>
+                    <li>In decimal: 42 = 042 = 0042</li>
+                    <li>In binary: 101010<sub>2</sub> = 0101010<sub>2</sub> = 00101010<sub>2</sub></li>
+                    <li>In hexadecimal: 0x2A = 0x02A = 0x002A = 0x0000002A</li>
+                </ul>
+                <p>This is because leading zeros represent values multiplied by higher powers of the base, which equal zero:</p>
+                <div class="latex-block">
+                    \begin{align}
+                    \textcolor{red}{0}\textcolor{red}{0}\textcolor{red}{2}\textcolor{red}{A}_{16} &= \textcolor{red}{0} \times 16^3 + \textcolor{red}{0} \times 16^2 + \textcolor{red}{2} \times 16^1 + \textcolor{red}{A} \times 16^0 \\[5pt]
+                    &= 0 + 0 + 32 + 10 = \textcolor{red}{4}\textcolor{red}{2}_{10}
+                    \end{align}
+                </div>
+                <p>Leading zeros are often used to standardize the length of numbers in computer systems or to improve readability.</p>
+                
+                <h4>Trailing Zeros</h4>
+                <p>Adding zeros at the end (right side) of a number does change its value:</p>
+                <ul>
+                    <li>In decimal: 42 ≠ 420 ≠ 4200</li>
+                    <li>In binary: 101010<sub>2</sub> ≠ 1010100<sub>2</sub> ≠ 10101000<sub>2</sub></li>
+                    <li>In hexadecimal: 0x2A ≠ 0x2A0 ≠ 0x2A00</li>
+                </ul>
+                <p>This is because trailing zeros represent values multiplied by powers of the base that increase the number's value:</p>
+                <div class="latex-block">
+                    \begin{align}
+                    \textcolor{red}{2}\textcolor{red}{A}\textcolor{red}{0}_{16} &= \textcolor{red}{2} \times 16^2 + \textcolor{red}{A} \times 16^1 + \textcolor{red}{0} \times 16^0 \\[5pt]
+                    &= 512 + 160 + 0 = \textcolor{red}{6}\textcolor{red}{7}\textcolor{red}{2}_{10}
+                    \end{align}
+                </div>
+                <p>This is analogous to how 42 and 420 are different numbers in the decimal system.</p>
             </section>
             
             <section>
@@ -168,7 +206,7 @@
                 </ul>
                 <p>For example, when setting up registers on a microcontroller, you might use hexadecimal values like:</p>
                 <div class="code-block">
-                    <pre>PORTB = <span style="color:red">0x3F</span>;  <span class="comment">// Sets the first 6 pins to HIGH (binary <span style="color:red">00111111</span>)</span></pre>
+                    <pre>PORTB = <span style="color:red">0x2A</span>;  <span class="comment">// Sets pins 1, 3, and 5 to HIGH (binary <span style="color:red">00101010</span>)</span></pre>
                 </div>
             </section>
             
@@ -176,9 +214,9 @@
                 <h3>Practice Exercises</h3>
                 <ol>
                     <li>Convert 42 (decimal) to binary and hexadecimal</li>
-                    <li>Convert 10110 (binary) to decimal and hexadecimal</li>
-                    <li>Convert 0xC4 (hexadecimal) to binary and decimal</li>
-                    <li>Add the binary numbers 1011 and 101</li>
+                    <li>Convert 101010 (binary) to decimal and hexadecimal</li>
+                    <li>Convert 0x2A (hexadecimal) to binary and decimal</li>
+                    <li>Add the binary numbers 101010 and 101</li>
                 </ol>
                 <p>Solutions will be provided in the next lesson.</p>
             </section>

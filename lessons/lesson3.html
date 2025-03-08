@@ -45,27 +45,27 @@
                 
                 <h4>1. NOT Gate (Inverter)</h4>
                 <p>The NOT gate, also called an inverter, has a single input and produces the opposite (complement) of that input.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \overrightarrow{\text{|>o}} \rightarrow Y \text{ (where } Y = \text{NOT } A \text{ or } \overline{A}\text{)}
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{NOT}} \rightarrow Y \text{ (where } Y = \text{NOT } A \text{ or } \overline{A}\text{)}$$
                     
-                    \begin{array}{|c|c|}
+                    $$\begin{array}{|c|c|}
                     \hline
                     A & Y \\
                     \hline
                     \textcolor{red}{0} & \textcolor{red}{1} \\
                     \textcolor{red}{1} & \textcolor{red}{0} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>The NOT gate reverses the logic state - if the input is TRUE (1), the output is FALSE (0), and vice versa.</p>
                 
                 <h4>2. AND Gate</h4>
                 <p>The AND gate produces a high output (1) only when all of its inputs are high.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \boxed{\&} \rightarrow Y \text{ (where } Y = A \text{ AND } B\text{)}\\
-                    \phantom{\text{Symbol: }} B \rightarrow 
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{AND}} \rightarrow Y \text{ (where } Y = A \text{ AND } B\text{)}$$
+                    $$\text{Symbol: } B \rightarrow$$
                     
-                    \begin{array}{|c|c|c|}
+                    $$\begin{array}{|c|c|c|}
                     \hline
                     A & B & Y \\
                     \hline
@@ -74,17 +74,17 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>The AND gate implements logical multiplication: the output is 1 only if both input A AND input B are 1.</p>
                 
                 <h4>3. OR Gate</h4>
                 <p>The OR gate produces a high output (1) when at least one of its inputs is high.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \boxed{\geq 1} \rightarrow Y \text{ (where } Y = A \text{ OR } B\text{)}\\
-                    \phantom{\text{Symbol: }} B \rightarrow 
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{OR}} \rightarrow Y \text{ (where } Y = A \text{ OR } B\text{)}$$
+                    $$\text{Symbol: } B \rightarrow$$
                     
-                    \begin{array}{|c|c|c|}
+                    $$\begin{array}{|c|c|c|}
                     \hline
                     A & B & Y \\
                     \hline
@@ -93,17 +93,17 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>The OR gate implements logical addition: the output is 1 if either input A OR input B (or both) are 1.</p>
                 
                 <h4>4. NAND Gate</h4>
                 <p>The NAND gate is an AND gate followed by a NOT gate. Its output is the complement of an AND gate.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \boxed{\&\circ} \rightarrow Y \text{ (where } Y = \text{NOT}(A \text{ AND } B)\text{)}\\
-                    \phantom{\text{Symbol: }} B \rightarrow 
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{NAND}} \rightarrow Y \text{ (where } Y = \text{NOT}(A \text{ AND } B)\text{)}$$
+                    $$\text{Symbol: } B \rightarrow$$
                     
-                    \begin{array}{|c|c|c|}
+                    $$\begin{array}{|c|c|c|}
                     \hline
                     A & B & Y \\
                     \hline
@@ -112,17 +112,17 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{0} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>The NAND gate is particularly important because it is "functionally complete" - any boolean function can be implemented using only NAND gates.</p>
                 
                 <h4>5. NOR Gate</h4>
                 <p>The NOR gate is an OR gate followed by a NOT gate. Its output is the complement of an OR gate.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \boxed{\geq 1 \circ} \rightarrow Y \text{ (where } Y = \text{NOT}(A \text{ OR } B)\text{)}\\
-                    \phantom{\text{Symbol: }} B \rightarrow 
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{NOR}} \rightarrow Y \text{ (where } Y = \text{NOT}(A \text{ OR } B)\text{)}$$
+                    $$\text{Symbol: } B \rightarrow$$
                     
-                    \begin{array}{|c|c|c|}
+                    $$\begin{array}{|c|c|c|}
                     \hline
                     A & B & Y \\
                     \hline
@@ -131,17 +131,17 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{0} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>Like the NAND gate, the NOR gate is also functionally complete - any boolean function can be implemented using only NOR gates.</p>
                 
                 <h4>6. XOR Gate (Exclusive OR)</h4>
                 <p>The XOR (Exclusive OR) gate produces a high output when an odd number of its inputs are high.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \boxed{=1} \rightarrow Y \text{ (where } Y = A \text{ XOR } B\text{)}\\
-                    \phantom{\text{Symbol: }} B \rightarrow 
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{XOR}} \rightarrow Y \text{ (where } Y = A \text{ XOR } B\text{)}$$
+                    $$\text{Symbol: } B \rightarrow$$
                     
-                    \begin{array}{|c|c|c|}
+                    $$\begin{array}{|c|c|c|}
                     \hline
                     A & B & Y \\
                     \hline
@@ -150,17 +150,17 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{0} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>The XOR gate outputs 1 when the inputs are different, and 0 when they are the same. It's commonly used in arithmetic circuits.</p>
                 
                 <h4>7. XNOR Gate (Exclusive NOR)</h4>
                 <p>The XNOR gate is an XOR gate followed by a NOT gate. Its output is the complement of an XOR gate.</p>
-                <div class="code-block latex-block">
-                    \text{Symbol: } A \rightarrow \boxed{=1\circ} \rightarrow Y \text{ (where } Y = \text{NOT}(A \text{ XOR } B)\text{)}\\
-                    \phantom{\text{Symbol: }} B \rightarrow 
+                <div class="latex-block">
+                    $$\text{Symbol: } A \rightarrow \boxed{\text{XNOR}} \rightarrow Y \text{ (where } Y = \text{NOT}(A \text{ XOR } B)\text{)}$$
+                    $$\text{Symbol: } B \rightarrow$$
                     
-                    \begin{array}{|c|c|c|}
+                    $$\begin{array}{|c|c|c|}
                     \hline
                     A & B & Y \\
                     \hline
@@ -169,7 +169,7 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{0} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{1} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>The XNOR gate outputs 1 when the inputs are the same, and 0 when they are different. It's essentially an "equality detector".</p>
                 
@@ -195,16 +195,37 @@
             </section>
             
             <section>
-                <h3>Boolean Algebra and Logic Gate Equivalents</h3>
-                <p>Boolean algebra provides a mathematical foundation for working with logic gates. Some key identities include:</p>
-                <ul>
-                    <li>Double negation: \(\text{NOT}(\text{NOT } A) = A\)</li>
-                    <li>Commutative laws: \(A \text{ AND } B = B \text{ AND } A\); \(A \text{ OR } B = B \text{ OR } A\)</li>
-                    <li>Associative laws: \((A \text{ AND } B) \text{ AND } C = A \text{ AND } (B \text{ AND } C)\); \((A \text{ OR } B) \text{ OR } C = A \text{ OR } (B \text{ OR } C)\)</li>
-                    <li>Distributive laws: \(A \text{ AND } (B \text{ OR } C) = (A \text{ AND } B) \text{ OR } (A \text{ AND } C)\); \(A \text{ OR } (B \text{ AND } C) = (A \text{ OR } B) \text{ AND } (A \text{ OR } C)\)</li>
-                    <li>De Morgan's laws: \(\text{NOT}(A \text{ AND } B) = \text{NOT } A \text{ OR NOT } B\); \(\text{NOT}(A \text{ OR } B) = \text{NOT } A \text{ AND NOT } B\)</li>
-                </ul>
-                <p>These laws allow us to simplify complex logic expressions and design more efficient circuits.</p>
+                <h3>Boolean Algebra</h3>
+                <p>Logic gates can be represented mathematically using Boolean algebra, which provides a formal way to manipulate and simplify digital logic expressions.</p>
+                
+                <h4>Basic Boolean Identities</h4>
+                <div class="latex-block">
+                    $$\begin{array}{lll}
+                    \text{Identity Law:} & A \cdot 1 = A & A + 0 = A \\
+                    \text{Null Law:} & A \cdot 0 = 0 & A + 1 = 1 \\
+                    \text{Idempotent Law:} & A \cdot A = A & A + A = A \\
+                    \text{Complementary Law:} & A \cdot \overline{A} = 0 & A + \overline{A} = 1 \\
+                    \text{Double Negation:} & \overline{\overline{A}} = A
+                    \end{array}$$
+                </div>
+                
+                <h4>Commutative, Associative, and Distributive Laws</h4>
+                <div class="latex-block">
+                    $$\begin{array}{lll}
+                    \text{Commutative Law:} & A \cdot B = B \cdot A & A + B = B + A \\
+                    \text{Associative Law:} & (A \cdot B) \cdot C = A \cdot (B \cdot C) & (A + B) + C = A + (B + C) \\
+                    \text{Distributive Law:} & A \cdot (B + C) = A \cdot B + A \cdot C & A + (B \cdot C) = (A + B) \cdot (A + C)
+                    \end{array}$$
+                </div>
+                
+                <h4>De Morgan's Theorems</h4>
+                <div class="latex-block">
+                    $$\begin{array}{l}
+                    \overline{A \cdot B} = \overline{A} + \overline{B} \\
+                    \overline{A + B} = \overline{A} \cdot \overline{B}
+                    \end{array}$$
+                </div>
+                <p>These laws allow us to simplify complex logic expressions, which leads to more efficient circuit designs with fewer gates.</p>
             </section>
             
             <section>
@@ -213,13 +234,13 @@
                 
                 <h4>1. Half Adder</h4>
                 <p>A half adder adds two bits and produces a sum and a carry bit:</p>
-                <div class="code-block latex-block">
-                    \begin{array}{l}
+                <div class="latex-block">
+                    $$\begin{array}{l}
                     \text{Sum} = A \text{ XOR } B \\
                     \text{Carry} = A \text{ AND } B
-                    \end{array}
+                    \end{array}$$
                     
-                    \begin{array}{|c|c|c|c|}
+                    $$\begin{array}{|c|c|c|c|}
                     \hline
                     A & B & \text{Sum} & \text{Carry} \\
                     \hline
@@ -228,16 +249,16 @@
                     \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{0} \\
                     \textcolor{red}{1} & \textcolor{red}{1} & \textcolor{red}{0} & \textcolor{red}{1} \\
                     \hline
-                    \end{array}
+                    \end{array}$$
                 </div>
                 
                 <h4>2. Full Adder</h4>
                 <p>A full adder adds three bits (two input bits and a carry-in) and produces a sum and a carry-out:</p>
-                <div class="code-block latex-block">
-                    \begin{array}{l}
+                <div class="latex-block">
+                    $$\begin{array}{l}
                     \text{Sum} = A \text{ XOR } B \text{ XOR } C_{in} \\
                     \text{Carry-out} = (A \text{ AND } B) \text{ OR } (C_{in} \text{ AND } (A \text{ XOR } B))
-                    \end{array}
+                    \end{array}$$
                 </div>
                 <p>Full adders are used to build multi-bit adders for arithmetic operations.</p>
                 
@@ -248,32 +269,44 @@
             <section>
                 <h3>Logic Gates in Microcontrollers</h3>
                 <p>In microcontroller programming for robotics, we often use bitwise operations to implement logic functions:</p>
-                <div class="code-block">
-                    // C/C++ code examples
-                    
-                    // NOT operation
-                    result = ~A;
-                    
-                    // AND operation
-                    result = A & B;
-                    
-                    // OR operation
-                    result = A | B;
-                    
-                    // XOR operation
-                    result = A ^ B;
-                    
-                    // Example: Check if a specific bit is set
-                    if (PINB & (1 << 3)) {
-                        // Bit 3 is high
-                    }
-                    
-                    // Example: Set a specific bit
-                    PORTD |= (1 << 5);  // Set bit 5 high
-                    
-                    // Example: Clear a specific bit
-                    PORTD &= ~(1 << 5);  // Set bit 5 low
-                </div>
+                <div class="code-block"><code>
+// C/C++ BITWISE OPERATIONS EXAMPLES
+// ================================
+
+// BASIC LOGIC OPERATIONS
+// --------------------
+// NOT operation (bitwise inversion)
+result = ~A;                    // Inverts all bits in A
+
+// AND operation (bitwise conjunction)
+result = A & B;                 // 1 only where both A AND B have 1s
+
+// OR operation (bitwise disjunction)
+result = A | B;                 // 1 where either A OR B (or both) have 1s
+
+// XOR operation (bitwise exclusive OR)
+result = A ^ B;                 // 1 where either A OR B (but not both) have 1s
+
+// MICROCONTROLLER PIN MANIPULATION
+// ------------------------------
+// Reading pins: Check if a specific bit is set
+if (PINB & (1 << 3)) {
+    // Bit 3 in PINB is high (1)
+    // This checks if pin PB3 is receiving HIGH voltage
+}
+
+// Writing pins: Set a specific bit (turn it ON)
+PORTD |= (1 << 5);              // Set bit 5 in PORTD to HIGH
+                                // This turns ON the output at pin PD5
+
+// Writing pins: Clear a specific bit (turn it OFF)
+PORTD &= ~(1 << 5);             // Set bit 5 in PORTD to LOW
+                                // This turns OFF the output at pin PD5
+
+// Writing pins: Toggle a specific bit (flip its state)
+PORTC ^= (1 << 2);              // Flip bit 2 in PORTC
+                                // If PD2 was HIGH, it becomes LOW (and vice versa)
+</code></div>
                 <p>These operations allow direct manipulation of individual bits in registers, which is essential for controlling hardware in robotics applications.</p>
             </section>
             
@@ -281,17 +314,22 @@
                 <h3>Practical Application: Simple LED Circuit</h3>
                 <p>Let's design a simple circuit that turns on an LED when two push buttons are pressed simultaneously (implementing an AND function):</p>
                 
-                <div class="code-block latex-block">
-                    \begin{array}{l}
+                <div class="latex-block">
+                    $$\begin{array}{l}
                     \text{Components:} \\
                     \text{- Two push buttons (Button A and Button B)} \\
                     \text{- One LED with current-limiting resistor} \\
                     \text{- One 2-input AND gate (e.g., 7408 IC)} \\
                     \text{- Power supply (e.g., 5V)}
-                    \end{array}
+                    \end{array}$$
                 </div>
                 
                 <p>When both Button A AND Button B are pressed, the inputs to the AND gate are both HIGH, producing a HIGH output that turns on the LED. This simple circuit demonstrates the practical application of logic gates in electronic systems.</p>
+                
+                <figure class="lesson-image">
+                    <img src="../images/Circuit_AND.png" alt="AND Gate Circuit with LED" width="80%">
+                    <figcaption>AND Gate Circuit Implementation - <a href="https://www.tinkercad.com/things/11Tn1CggDm7/editel?sharecode=aDoTz2fUJUVJ-_vayYtSuoFnmrp986hDqiO_6gKmDrk" target="_blank">View this circuit in Tinkercad</a></figcaption>
+                </figure>
                 
                 <h4>Extending the Circuit</h4>
                 <p>We can extend this concept to create more complex behaviors:</p>

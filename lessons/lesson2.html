@@ -16,29 +16,43 @@
             overflow-x: auto;
             text-align: center;
         }
+        
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            white-space: pre;
+            display: block;
+        }
+        
+        .code-block code {
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: block;
+            white-space: pre;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Circuit Theory & Robotics</h1>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../lessons.html">Lessons</a></li>
-                    <li><a href="../projects.html">Projects</a></li>
-                    <li><a href="../resources.html">Resources</a></li>
-                </ul>
-            </nav>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
         </div>
     </header>
 
     <main class="container">
-        <article class="lesson">
-            <header>
-                <h2>Lesson 2: Binary Arithmetic</h2>
-                <p>Understanding binary arithmetic operations for digital systems and microcontrollers.</p>
-            </header>
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Lesson 2: Binary Arithmetic</h2>
+            <p>Understanding binary arithmetic operations for digital systems and microcontrollers.</p>
             
             <section>
                 <h3>Introduction to Binary Arithmetic</h3>
@@ -47,9 +61,9 @@
                 <div class="latex-block">
                     \begin{array}{rcl}
                     \text{Decimal } 42 &=& 4 \times 10^1 + 2 \times 10^0 \\
-                    \text{Binary } 101010 &=& 1 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 \\
+                    \text{Binary } 101010_{2} &=& 1 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 0 \times 2^2 + 1 \times 2^1 + 0 \times 2^0 \\
                     &=& 32 + 0 + 8 + 0 + 2 + 0 \\
-                    &=& 42
+                    &=& 42_{10}
                     \end{array}
                 </div>
                 <p>Now, let's learn how to perform arithmetic operations in this binary system.</p>
@@ -66,13 +80,13 @@
                     1 + 1 = 10 \text{ (which is 2 in decimal, written as 0 with a carry of 1)}
                     \end{array}
                 </div>
-                <p>Let's work through an example: adding 1011 and 101</p>
+                <p>Let's work through an example: adding 1011<sub>2</sub> and 101<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{rrrrr}
-                      & & 1 & 0 & 1 \\
-                    + & & 0 & 1 & 1 \\
+                      & & 1 & 0 & 1 & 1 \\
+                    + & & & 1 & 0 & 1 \\
                     \hline
-                      & & 1 & 1 & 0 \\
+                      & & 1 & 1 & 0 & 0 \\
                     \end{array}
                 </div>
                 <p>Working from right to left:</p>
@@ -83,7 +97,7 @@
                     <li>1 + 0 + 1 (carry) = 10, write 0, carry 1</li>
                     <li>Write the final carry 1</li>
                 </ol>
-                <p>So 1011 + 101 = 10000, which is 11 + 5 = 16 in decimal.</p>
+                <p>So 1011<sub>2</sub> + 101<sub>2</sub> = 10000<sub>2</sub>, which is 11 + 5 = 16 in decimal.</p>
             </section>
             
             <section>
@@ -100,7 +114,7 @@
                     0 - 1 = 1 \text{ (with borrow)}
                     \end{array}
                 </div>
-                <p>Example: 1101 - 1001</p>
+                <p>Example: 1101<sub>2</sub> - 1001<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{rrrrr}
                       & & 1 & 1 & 0 & 1 \\
@@ -109,7 +123,7 @@
                       & & 0 & 1 & 0 & 0 \\
                     \end{array}
                 </div>
-                <p>Result: 1101 - 1001 = 0100 (13 - 9 = 4 in decimal)</p>
+                <p>Result: 1101<sub>2</sub> - 1001<sub>2</sub> = 0100<sub>2</sub> (13 - 9 = 4 in decimal)</p>
                 
                 <h4>2. Two's Complement Method</h4>
                 <p>In digital systems, subtraction is often implemented using the two's complement method:</p>
@@ -123,7 +137,7 @@
                     <li>Invert all bits (change 0s to 1s and 1s to 0s)</li>
                     <li>Add 1 to the result</li>
                 </ol>
-                <p>Example: 1101 - 1001 using two's complement</p>
+                <p>Example: 1101<sub>2</sub> - 1001<sub>2</sub> using two's complement</p>
                 <div class="latex-block">
                     \begin{array}{l}
                     \text{Two's complement of 1001:} \\
@@ -133,7 +147,7 @@
                     \text{Discard extra carry: } 0100
                     \end{array}
                 </div>
-                <p>Result: 0100 (4 in decimal), which is correct.</p>
+                <p>Result: 0100<sub>2</sub> (4 in decimal), which is correct.</p>
             </section>
             
             <section>
@@ -147,7 +161,7 @@
                     1 \times 1 = 1
                     \end{array}
                 </div>
-                <p>Example: 101 × 11</p>
+                <p>Example: 101<sub>2</sub> × 11<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{rrrrr}
                       & & 1 & 0 & 1 \\
@@ -159,7 +173,7 @@
                       & 1 & 1 & 1 & 1 & \\
                     \end{array}
                 </div>
-                <p>Result: 101 × 11 = 1111 (5 × 3 = 15 in decimal)</p>
+                <p>Result: 101<sub>2</sub> × 11<sub>2</sub> = 1111<sub>2</sub> (5 × 3 = 15 in decimal)</p>
                 <p>Note that binary multiplication can be implemented using shifts and additions, which is efficient in digital systems.</p>
             </section>
             
@@ -176,7 +190,7 @@
                     \phantom{11}0
                     \end{array}
                 </div>
-                <p>Result: 1010 ÷ 10 = 101 with remainder 0 (10 ÷ 2 = 5 in decimal)</p>
+                <p>Result: 1010<sub>2</sub> ÷ 10<sub>2</sub> = 101<sub>2</sub> with remainder 0 (10 ÷ 2 = 5 in decimal)</p>
                 <p>In digital systems, division is typically implemented using a combination of shifts, comparisons, and subtractions.</p>
             </section>
             
@@ -184,7 +198,7 @@
                 <h3>Bitwise Operations</h3>
                 <p>In addition to arithmetic operations, digital systems extensively use bitwise operations that work on individual bits:</p>
                 
-                <h4>1. Bitwise AND (&)</h4>
+                <h4>1. Bitwise AND (&amp;)</h4>
                 <p>Performs logical AND on each pair of corresponding bits:</p>
                 <div class="latex-block">
                     \begin{array}{l}
@@ -194,11 +208,11 @@
                     1 \text{ AND } 1 = 1
                     \end{array}
                 </div>
-                <p>Example: 1100 &amp; 1010 = 1000</p>
+                <p>Example: 1100<sub>2</sub> &amp; 1010<sub>2</sub> = 1000<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{rrrrr}
                       & 1 & 1 & 0 & 0 \\
-                    \text{\&} & 1 & 0 & 1 & 0 \\
+                    \text{\&amp;} & 1 & 0 & 1 & 0 \\
                     \hline
                       & 1 & 0 & 0 & 0 \\
                     \end{array}
@@ -215,7 +229,7 @@
                     1 \text{ OR } 1 = 1
                     \end{array}
                 </div>
-                <p>Example: 1100 | 1010 = 1110</p>
+                <p>Example: 1100<sub>2</sub> | 1010<sub>2</sub> = 1110<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{rrrrr}
                       & 1 & 1 & 0 & 0 \\
@@ -236,7 +250,7 @@
                     1 \text{ XOR } 1 = 0
                     \end{array}
                 </div>
-                <p>Example: 1100 ^ 1010 = 0110</p>
+                <p>Example: 1100<sub>2</sub> ^ 1010<sub>2</sub> = 0110<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{rrrrr}
                       & 1 & 1 & 0 & 0 \\
@@ -255,7 +269,7 @@
                     \text{NOT } 1 = 0
                     \end{array}
                 </div>
-                <p>Example: ~1010 = 0101 (in 4-bit representation)</p>
+                <p>Example: ~1010<sub>2</sub> = 0101<sub>2</sub> (in 4-bit representation)</p>
                 <p>Common use: Creating inverse masks, finding two's complement</p>
             </section>
             
@@ -263,27 +277,27 @@
                 <h3>Shift Operations</h3>
                 <p>Shift operations move bits to the left or right within a binary number:</p>
                 
-                <h4>1. Left Shift (<<)</h4>
+                <h4>1. Left Shift (&lt;&lt;)</h4>
                 <p>Shifts all bits to the left by a specified number of positions, filling vacated positions with 0s.</p>
-                <p>Example: 1011 << 2 = 101100</p>
+                <p>Example: 1011<sub>2</sub> &lt;&lt; 2 = 101100<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{ll}
-                    \text{Original: } &amp; 1011 \\
-                    \text{After left shift by 2: } &amp; 101100
+                    \text{Original: } & 1011_{2} \\
+                    \text{After left shift by 2: } & 101100_{2}
                     \end{array}
                 </div>
-                <p>Effect: Multiplies the number by 2^n (where n is the shift amount)</p>
+                <p>Effect: Multiplies the number by 2<sup>n</sup> (where n is the shift amount)</p>
                 
-                <h4>2. Right Shift (>>)</h4>
+                <h4>2. Right Shift (&gt;&gt;)</h4>
                 <p>Shifts all bits to the right by a specified number of positions.</p>
-                <p>Example: 1011 >> 2 = 10</p>
+                <p>Example: 1011<sub>2</sub> &gt;&gt; 2 = 10<sub>2</sub></p>
                 <div class="latex-block">
                     \begin{array}{ll}
-                    \text{Original: } &amp; 1011 \\
-                    \text{After right shift by 2: } &amp; 10
+                    \text{Original: } & 1011_{2} \\
+                    \text{After right shift by 2: } & 10_{2}
                     \end{array}
                 </div>
-                <p>Effect: Divides the number by 2^n (where n is the shift amount), ignoring remainder</p>
+                <p>Effect: Divides the number by 2<sup>n</sup> (where n is the shift amount), ignoring remainder</p>
             </section>
             
             <section>
@@ -295,40 +309,63 @@
                     <li><strong>Packing Data:</strong> Storing multiple values in a single byte to save memory</li>
                     <li><strong>I/O Control:</strong> Managing multiple I/O pins with a single operation</li>
                 </ul>
-                <pre class="code-block">
-// C/C++ code examples
+                <div class="code-block"><code>
+// C/C++ BITWISE OPERATIONS EXAMPLES
+// ================================
 
-// Set bit 3 in PORT B
-PORTB |= (1 << 3);  // Equivalent to PORTB |= 0x08;
+// BASIC OPERATIONS
+// ----------------
+// NOT operation (bitwise complement)
+result = ~A;                     // Inverts all bits in A
 
-// Clear bit 5 in PORT D
-PORTD &= ~(1 << 5);  // Equivalent to PORTD &= 0xDF;
+// AND operation (bitwise AND)
+result = A & B;                  // Sets bits where both A AND B have 1s
 
-// Toggle bit 2 in PORT C
-PORTC ^= (1 << 2);  // Equivalent to PORTC ^= 0x04;
+// OR operation (bitwise OR)
+result = A | B;                  // Sets bits where either A OR B have 1s
 
-// Check if bit 4 in PIN A is high
-if (PINA &amp; (1 << 4)) {
-    // Bit is high, do something
+// XOR operation (bitwise exclusive OR)
+result = A ^ B;                  // Sets bits where either A OR B (but not both) have 1s
+
+// REGISTER MANIPULATION (for microcontrollers)
+// -------------------------------------------
+// Set a specific bit (turn it ON)
+PORTB |= (1 << 3);               // Set bit 3 in PORT B to 1
+                                 // Equivalent to: PORTB |= 0x08;
+
+// Clear a specific bit (turn it OFF)
+PORTD &= ~(1 << 5);              // Set bit 5 in PORT D to 0
+                                 // Equivalent to: PORTD &= 0xDF;
+
+// Toggle a specific bit (flip its state)
+PORTC ^= (1 << 2);               // Change bit 2 in PORT C from 0→1 or 1→0
+                                 // Equivalent to: PORTC ^= 0x04;
+
+// Check if a bit is set (test if it's ON)
+if (PINA & (1 << 4)) {
+    // Bit 4 in PORT A is high (1)
+    // Execute code when bit is ON
 }
 
-// Multiply by 8 using left shift
-int result = value << 3;  // Equivalent to value * 8
+// EFFICIENT ARITHMETIC WITH SHIFTS
+// -------------------------------
+// Left shift (multiply by powers of 2)
+int valueMultiplied = value << 3;  // Equivalent to: value * 8
 
-// Divide by 4 using right shift
-int result = value >> 2;  // Equivalent to value / 4
-                </pre>
+// Right shift (divide by powers of 2)
+int valueDivided = value >> 2;     // Equivalent to: value / 4
+</code></div>
                 <p>Understanding binary arithmetic and bitwise operations is essential for efficient microcontroller programming, especially in memory-constrained environments typical in robotics.</p>
             </section>
             
             <section>
                 <h3>Practice Exercises</h3>
                 <ol>
-                    <li>Add the binary numbers 1101 and 1011</li>
-                    <li>Subtract 1010 from 11001 using both direct method and two's complement</li>
-                    <li>Multiply 1101 by 101</li>
-                    <li>Perform bitwise AND, OR, and XOR on 1100 and 1010</li>
-                    <li>Shift 10110 left by 2 positions and right by 1 position</li>
+                    <li>Add the binary numbers 1101<sub>2</sub> and 1011<sub>2</sub></li>
+                    <li>Subtract 1010<sub>2</sub> from 11001<sub>2</sub> using both direct method and two's complement</li>
+                    <li>Multiply 1101<sub>2</sub> by 101<sub>2</sub></li>
+                    <li>Perform bitwise AND, OR, and XOR on 1100<sub>2</sub> and 1010<sub>2</sub></li>
+                    <li>Shift 10110<sub>2</sub> left by 2 positions and right by 1 position</li>
                 </ol>
                 <p>Try solving these on your own before checking the solutions in the next lesson!</p>
             </section>
@@ -348,8 +385,8 @@ int result = value >> 2;  // Equivalent to value / 4
         </article>
 
         <div class="lesson-navigation">
-            <a href="lesson1.html" class="prev-lesson">← Previous: Binary Number System</a>
-            <a href="lesson3.html" class="next-lesson">Next: Logic Gates →</a>
+            <a href="lesson1.html" class="btn btn-primary">← Previous: Binary Number System</a>
+            <a href="lesson3.html" class="btn btn-primary">Next: Logic Gates →</a>
         </div>
     </main>
 
