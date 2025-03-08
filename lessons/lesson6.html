@@ -6,6 +6,17 @@
     <title>Lesson 6: LEDs & Digital Outputs | Circuit Theory & Robotics</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script.js" defer></script>
+    <!-- MathJax for LaTeX support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Additional styles for LaTeX content */
+        .latex-block {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -295,7 +306,106 @@ void loop() {
             
             <section>
                 <h3>Solutions to Lesson 5 Exercises</h3>
-                <p>Coming soon...</p>
+                <ol>
+                    <li>
+                        <p><strong>Question:</strong> Build a circuit with two LEDs that alternately blink (when one is on, the other is off).</p>
+                        <p><strong>Solution:</strong> This can be achieved using a 555 timer IC configured as an astable multivibrator with two LEDs connected in opposite directions:</p>
+                        <ol type="a">
+                            <li>On the breadboard, place the 555 timer IC straddling the center divider.</li>
+                            <li>Connect pin 8 (VCC) to the positive power rail and pin 1 (GND) to the negative power rail.</li>
+                            <li>Connect a 10kΩ resistor from pin 7 to pin 8.</li>
+                            <li>Connect a 47kΩ resistor from pin 7 to pin 6.</li>
+                            <li>Connect pin 6 to pin 2.</li>
+                            <li>Connect a 10µF capacitor from pin 2 to ground.</li>
+                            <li>For the LEDs, connect:
+                                <ul>
+                                    <li>LED 1: Anode to pin 3 through a 220Ω resistor, cathode to ground</li>
+                                    <li>LED 2: Anode to VCC through a 220Ω resistor, cathode to pin 3</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <p>This circuit uses the 555 timer to generate a square wave. When pin 3 is high, LED 1 turns on and LED 2 turns off. When pin 3 is low, LED 1 turns off and LED 2 turns on.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Create a voltage divider circuit on your breadboard and measure the output voltage.</p>
+                        <p><strong>Solution:</strong> A voltage divider can be created with two resistors:</p>
+                        <ol type="a">
+                            <li>Connect the positive rail of the breadboard to a 5V power source.</li>
+                            <li>Place a 1kΩ resistor from the positive rail to an empty row.</li>
+                            <li>Place a 2kΩ resistor from that same row to the negative (ground) rail.</li>
+                            <li>The junction between the two resistors is your output point.</li>
+                        </ol>
+                        <p>Using the voltage divider formula: $V_{out} = V_{in} \times \frac{R_2}{R_1+R_2}$</p>
+                        <p>With a 5V input, 1kΩ for R1, and 2kΩ for R2:</p>
+                        <div class="latex-block">
+                            $$V_{out} = 5V \times \frac{2k\Omega}{1k\Omega+2k\Omega} = 5V \times \frac{2}{3} = 3.33V$$
+                        </div>
+                        <p>When measured with a multimeter, the output voltage should be approximately 3.33V.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Connect a button on the breadboard that turns an LED on when pressed.</p>
+                        <p><strong>Solution:</strong> A simple push-button LED circuit:</p>
+                        <ol type="a">
+                            <li>Connect the positive rail to a 5V power source and the negative rail to ground.</li>
+                            <li>Place a push button across the center channel of the breadboard.</li>
+                            <li>Connect one side of the button to the positive rail.</li>
+                            <li>From the other side of the button, connect a 220Ω resistor to an empty row.</li>
+                            <li>Connect the anode (longer leg) of an LED to the same row as the resistor.</li>
+                            <li>Connect the cathode (shorter leg) of the LED to the negative rail (ground).</li>
+                        </ol>
+                        <p>When the button is not pressed, the circuit is open and the LED is off. When the button is pressed, it completes the circuit, allowing current to flow through the resistor and LED, causing the LED to light up.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Draw a diagram of a breadboard showing its internal connection pattern.</p>
+                        <p><strong>Solution:</strong> The internal connection pattern of a standard breadboard is as follows:</p>
+                        <div class="code-block">
+                            <pre>
++----------------------------------------------------------------------------+
+|                            POWER RAIL (+)                                   |
++----------------------------------------------------------------------------+
+|                            POWER RAIL (-)                                   |
++----------------------------------------------------------------------------+
+|   a   |   b   |   c   |   d   |   e   |   |   f   |   g   |   h   |   i   |   j   |
+|---+---|---+---|---+---|---+---|---+---|---|---+---|---+---|---+---|---+---|---+---|
+| 1 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   | 1 |
+|---+---|---+---|---+---|---+---|---+---|---|---+---|---+---|---+---|---+---|---+---|
+| 2 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   | 2 |
+|---+---|---+---|---+---|---+---|---+---|---|---+---|---+---|---+---|---+---|---+---|
+...
+|---+---|---+---|---+---|---+---|---+---|---|---+---|---+---|---+---|---+---|---+---|
+| 30|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   | 30|
+|---+---|---+---|---+---|---+---|---+---|---|---+---|---+---|---+---|---+---|---+---|
++----------------------------------------------------------------------------+
+|                            POWER RAIL (-)                                   |
++----------------------------------------------------------------------------+
+|                            POWER RAIL (+)                                   |
++----------------------------------------------------------------------------+
+                            </pre>
+                        </div>
+                        <p>Where horizontal lines indicate electrical connections:</p>
+                        <ul>
+                            <li>The power rails run the length of the breadboard horizontally</li>
+                            <li>Columns a-e are connected horizontally in each row</li>
+                            <li>Columns f-j are connected horizontally in each row</li>
+                            <li>The center channel breaks the connections between columns e and f</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Design a breadboard layout for a basic H-bridge motor driver circuit.</p>
+                        <p><strong>Solution:</strong> A basic H-bridge using four transistors can be laid out as follows:</p>
+                        <ol type="a">
+                            <li>Place four NPN transistors (e.g., 2N2222) on the breadboard, two on each side of the center divider.</li>
+                            <li>Connect the emitters of the top two transistors to the positive power rail.</li>
+                            <li>Connect the emitters of the bottom two transistors to the negative power rail (ground).</li>
+                            <li>Connect the collector of the top-left transistor to the collector of the bottom-left transistor.</li>
+                            <li>Connect the collector of the top-right transistor to the collector of the bottom-right transistor.</li>
+                            <li>Connect a motor between these two junction points (between the collectors of the left pair and the collectors of the right pair).</li>
+                            <li>Add 1kΩ resistors from each transistor base to separate control lines for microcontroller input.</li>
+                            <li>Add protective diodes across each transistor from collector to emitter to protect against back EMF from the motor.</li>
+                        </ol>
+                        <p>When the top-left and bottom-right transistors are activated, the motor spins in one direction. When the top-right and bottom-left transistors are activated, the motor spins in the opposite direction. Never activate both transistors on the same side simultaneously, as this would create a short circuit.</p>
+                    </li>
+                </ol>
             </section>
             
             <section>

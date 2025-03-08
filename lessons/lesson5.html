@@ -6,6 +6,17 @@
     <title>Lesson 5: Breadboard Basics | Circuit Theory & Robotics</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script.js" defer></script>
+    <!-- MathJax for LaTeX support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Additional styles for LaTeX content */
+        .latex-block {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -212,7 +223,61 @@
             
             <section>
                 <h3>Solutions to Lesson 4 Exercises</h3>
-                <p>Coming soon...</p>
+                <ol>
+                    <li>
+                        <p><strong>Question:</strong> Calculate the total resistance of the following resistors connected in series: 100Ω, 220Ω, and 330Ω.</p>
+                        <p><strong>Solution:</strong> In a series circuit, the total resistance is the sum of all individual resistances:</p>
+                        <div class="latex-block">
+                            $$R_{total} = R_1 + R_2 + R_3 = 100\Omega + 220\Omega + 330\Omega = 650\Omega$$
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Calculate the total capacitance of three capacitors (10µF, 22µF, and 47µF) connected in parallel.</p>
+                        <p><strong>Solution:</strong> For capacitors in parallel, the total capacitance is the sum of the individual capacitances:</p>
+                        <div class="latex-block">
+                            $$C_{total} = C_1 + C_2 + C_3 = 10\mu F + 22\mu F + 47\mu F = 79\mu F$$
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Identify the colors on a resistor with the value 4.7kΩ with a 5% tolerance.</p>
+                        <p><strong>Solution:</strong> For a 4.7kΩ resistor with 5% tolerance, the color bands would be:</p>
+                        <ul>
+                            <li>First band (first digit): Yellow (4)</li>
+                            <li>Second band (second digit): Violet (7)</li>
+                            <li>Third band (multiplier): Red (×100)</li>
+                            <li>Fourth band (tolerance): Gold (5%)</li>
+                        </ul>
+                        <p>Therefore, the color code is Yellow-Violet-Red-Gold.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Design a simple voltage divider circuit to convert a 9V battery voltage to approximately 5V for an Arduino input.</p>
+                        <p><strong>Solution:</strong> A voltage divider consists of two resistors in series. The output voltage is calculated using:</p>
+                        <div class="latex-block">
+                            $$V_{out} = V_{in} \times \frac{R_2}{R_1 + R_2}$$
+                        </div>
+                        <p>We want $V_{out} = 5V$ when $V_{in} = 9V$. Let's choose $R_1 = 1k\Omega$. Then:</p>
+                        <div class="latex-block">
+                            $$5V = 9V \times \frac{R_2}{1k\Omega + R_2}$$
+                            $$\frac{5}{9} = \frac{R_2}{1k\Omega + R_2}$$
+                            $$\frac{5}{9}(1k\Omega + R_2) = R_2$$
+                            $$\frac{5k\Omega}{9} + \frac{5R_2}{9} = R_2$$
+                            $$\frac{5k\Omega}{9} = R_2 - \frac{5R_2}{9} = \frac{9R_2 - 5R_2}{9} = \frac{4R_2}{9}$$
+                            $$5k\Omega = 4R_2$$
+                            $$R_2 = \frac{5k\Omega}{4} = 1.25k\Omega$$
+                        </div>
+                        <p>Therefore, a 1kΩ resistor for R1 and a 1.2kΩ resistor for R2 (using standard values) would give approximately 5V output from a 9V input.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Explain how you would use a capacitor to filter out high-frequency noise from a power supply.</p>
+                        <p><strong>Solution:</strong> To filter high-frequency noise from a power supply:</p>
+                        <ol>
+                            <li>Connect a capacitor in parallel with the power supply output, between the positive and negative (ground) terminals.</li>
+                            <li>Choose a capacitor value based on the frequencies to be filtered. Larger capacitors (e.g., 100µF electrolytic) filter lower frequencies, while smaller capacitors (e.g., 0.1µF ceramic) filter higher frequencies.</li>
+                            <li>For comprehensive filtering, use both a large electrolytic capacitor and a small ceramic capacitor in parallel.</li>
+                        </ol>
+                        <p>The capacitor acts as a low-impedance path for high-frequency noise while blocking DC, effectively shunting the noise to ground. This creates a more stable power supply for sensitive circuits.</p>
+                    </li>
+                </ol>
             </section>
             
             <section>

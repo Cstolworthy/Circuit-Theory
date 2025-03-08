@@ -6,6 +6,17 @@
     <title>Lesson 4: Circuit Components | Circuit Theory & Robotics</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script.js" defer></script>
+    <!-- MathJax for LaTeX support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Additional styles for LaTeX content */
+        .latex-block {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -30,23 +41,407 @@
             </section>
             
             <section>
-                <h3>Coming Soon</h3>
-                <p>This lesson is under development and will cover all essential aspects of circuit components including:</p>
+                <h3>Resistors</h3>
+                <p>Resistors are passive two-terminal components that implement electrical resistance in a circuit. They limit current flow and divide voltage.</p>
+                
+                <h4>Resistor Characteristics</h4>
+                <p>The primary characteristic of a resistor is its resistance value, measured in ohms (Ω). Resistors also have power ratings (measured in watts) that indicate how much power they can dissipate without being damaged.</p>
+                
+                <div class="latex-block">
+                    $$V = IR$$
+                    <p>Where:</p>
+                    $$\begin{array}{l}
+                    V = \text{Voltage across the resistor (volts)} \\
+                    I = \text{Current through the resistor (amperes)} \\
+                    R = \text{Resistance (ohms)}
+                    \end{array}$$
+                </div>
+                
+                <h4>Resistor Color Codes</h4>
+                <p>Resistors use a standardized color-coding system to indicate their resistance value and tolerance. Learning to read these color bands is an essential skill for electronics work.</p>
+                
+                <div class="component-image">
+                    <img src="../images/resistor_chart.png" alt="Resistor Color Code Chart" class="full-width-image">
+                </div>
+                
+                <div class="info-box">
+                    <h5>How to Read Resistor Color Codes: Step-by-Step</h5>
+                    <ol>
+                        <li><strong>Position the resistor</strong> with the gold or silver tolerance band to the right</li>
+                        <li><strong>Read the bands from left to right</strong></li>
+                        <li><strong>First two bands</strong>: These represent the first two digits of the resistance value</li>
+                        <li><strong>Third band</strong>: This is the multiplier (number of zeros to add)</li>
+                        <li><strong>Fourth band</strong>: This indicates the tolerance (how accurate the value is)</li>
+                    </ol>
+                </div>
+                
+                <div class="example-box">
+                    <h5>Example: Reading a Resistor with Brown-Black-Red-Gold Bands</h5>
+                    <ul>
+                        <li>First band (Brown) = 1</li>
+                        <li>Second band (Black) = 0</li>
+                        <li>Third band (Red) = × 10² (add 2 zeros)</li>
+                        <li>Fourth band (Gold) = ±5% tolerance</li>
+                        <li>Result: 10 × 10² = 1,000Ω or 1kΩ with ±5% tolerance</li>
+                    </ul>
+                </div>
+                
+                <div class="table-container">
+                    <table class="color-code-table">
+                        <thead>
+                            <tr>
+                                <th>Color</th>
+                                <th>1st & 2nd Bands (Digit)</th>
+                                <th>3rd Band (Multiplier)</th>
+                                <th>4th Band (Tolerance)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background-color: #000; color: #fff;">Black</td>
+                                <td>0</td>
+                                <td>×1 (×10⁰)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #8B4513; color: #fff;">Brown</td>
+                                <td>1</td>
+                                <td>×10 (×10¹)</td>
+                                <td>±1%</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #FF0000; color: #fff;">Red</td>
+                                <td>2</td>
+                                <td>×100 (×10²)</td>
+                                <td>±2%</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #FFA500; color: #000;">Orange</td>
+                                <td>3</td>
+                                <td>×1,000 (×10³)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #FFFF00; color: #000;">Yellow</td>
+                                <td>4</td>
+                                <td>×10,000 (×10⁴)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #008000; color: #fff;">Green</td>
+                                <td>5</td>
+                                <td>×100,000 (×10⁵)</td>
+                                <td>±0.5%</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #0000FF; color: #fff;">Blue</td>
+                                <td>6</td>
+                                <td>×1,000,000 (×10⁶)</td>
+                                <td>±0.25%</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #800080; color: #fff;">Violet</td>
+                                <td>7</td>
+                                <td>×10,000,000 (×10⁷)</td>
+                                <td>±0.1%</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #808080; color: #fff;">Grey</td>
+                                <td>8</td>
+                                <td>×100,000,000 (×10⁸)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #FFFFFF; color: #000; border: 1px solid #ccc;">White</td>
+                                <td>9</td>
+                                <td>×1,000,000,000 (×10⁹)</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #FFD700; color: #000;">Gold</td>
+                                <td>-</td>
+                                <td>×0.1 (×10⁻¹)</td>
+                                <td>±5%</td>
+                            </tr>
+                            <tr>
+                                <td style="background-color: #C0C0C0; color: #000;">Silver</td>
+                                <td>-</td>
+                                <td>×0.01 (×10⁻²)</td>
+                                <td>±10%</td>
+                            </tr>
+                            <tr>
+                                <td>None</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>±20%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="tips-box">
+                    <h5>Memory Tips for Resistor Color Codes</h5>
+                    <p>To remember the color order, many electronics students use a mnemonic:</p>
+                    <p><strong>"B</strong>ad <strong>B</strong>eer <strong>R</strong>ots <strong>O</strong>ur <strong>Y</strong>oung <strong>G</strong>uts <strong>B</strong>ut <strong>V</strong>odka <strong>G</strong>oes <strong>W</strong>ell"</p>
+                    <p>This corresponds to: <strong>B</strong>lack, <strong>B</strong>rown, <strong>R</strong>ed, <strong>O</strong>range, <strong>Y</strong>ellow, <strong>G</strong>reen, <strong>B</strong>lue, <strong>V</strong>iolet, <strong>G</strong>rey, <strong>W</strong>hite</p>
+                </div>
+
+                <p>For a standard four-band resistor, simply read the first two color bands as digits, the third band as a multiplier (number of zeros to add), and the fourth band as the tolerance.</p>
+                
+                <p>Five-band and six-band resistors follow a similar pattern but include additional precision digits or temperature coefficient information.</p>
+                
+                <h4>Resistors in Circuits</h4>
+                <p>Resistors serve multiple purposes in electronic circuits:</p>
                 <ul>
-                    <li>Resistors and their color codes</li>
-                    <li>Capacitors and their types</li>
-                    <li>Inductors and transformers</li>
-                    <li>Diodes and their applications</li>
-                    <li>Transistors (BJT and MOSFET)</li>
-                    <li>Integrated circuits</li>
-                    <li>Practical applications in robotics</li>
+                    <li><strong>Current limiting:</strong> Protect components from excessive current</li>
+                    <li><strong>Voltage division:</strong> Create reference voltages</li>
+                    <li><strong>Pull-up/pull-down:</strong> Ensure defined logic states for digital inputs</li>
+                    <li><strong>Biasing:</strong> Set operating points for active components</li>
                 </ul>
-                <p>Check back soon for updates, or visit the previous lessons to begin learning!</p>
+            </section>
+            
+            <section>
+                <h3>Capacitors</h3>
+                <p>Capacitors are passive two-terminal components that store electrical energy in the form of an electric field. They consist of two conductive plates separated by a dielectric material.</p>
+                
+                <h4>Capacitor Characteristics</h4>
+                <p>The primary characteristic of a capacitor is its capacitance value, measured in farads (F). Capacitors also have voltage ratings that indicate the maximum voltage they can withstand.</p>
+                
+                <div class="latex-block">
+                    $$C = \frac{Q}{V}$$
+                    <p>Where:</p>
+                    $$\begin{array}{l}
+                    C = \text{Capacitance (farads)} \\
+                    Q = \text{Charge (coulombs)} \\
+                    V = \text{Voltage across the capacitor (volts)}
+                    \end{array}$$
+                </div>
+                
+                <h4>Capacitor Types</h4>
+                <p>There are several types of capacitors, including:</p>
+                <ul>
+                    <li><strong>Ceramic capacitors:</strong> General-purpose capacitors with a ceramic dielectric</li>
+                    <li><strong>Electrolytic capacitors:</strong> Polarized capacitors with a high capacitance value</li>
+                    <li><strong>Film capacitors:</strong> Capacitors with a thin film dielectric, often used in high-frequency applications</li>
+                    <li><strong>Tantalum capacitors:</strong> Polarized capacitors with a high capacitance value and low leakage current</li>
+                </ul>
+                
+                <h4>Capacitors in Circuits</h4>
+                <p>Capacitors serve multiple purposes in electronic circuits:</p>
+                <ul>
+                    <li><strong>Filtering:</strong> Remove unwanted frequencies from a signal</li>
+                    <li><strong>Coupling:</strong> Allow AC signals to pass while blocking DC signals</li>
+                    <li><strong>Energy storage:</strong> Store energy for later use, such as in power supplies</li>
+                    <li><strong>Timing:</strong> Create timing circuits, such as oscillators and timers</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Inductors and Transformers</h3>
+                <p>Inductors are passive two-terminal components that store energy in a magnetic field when electric current flows through them. They typically consist of a coil of wire, sometimes wound around a core material.</p>
+                
+                <h4>Inductor Characteristics</h4>
+                <p>The primary characteristic of an inductor is its inductance, measured in henries (H). When current through an inductor changes, it develops a voltage that opposes the change in current.</p>
+                
+                <div class="latex-block">
+                    $$V = L \frac{dI}{dt}$$
+                    <p>Where:</p>
+                    $$\begin{array}{l}
+                    V = \text{Voltage across the inductor (volts)} \\
+                    L = \text{Inductance (henries)} \\
+                    \frac{dI}{dt} = \text{Rate of change of current with respect to time (amperes/second)}
+                    \end{array}$$
+                </div>
+                
+                <h4>Types of Inductors</h4>
+                <p>Inductors come in various types based on their core material:</p>
+                <ul>
+                    <li><strong>Air-core inductors:</strong> Use air as the core material, common in RF applications</li>
+                    <li><strong>Iron-core inductors:</strong> Use iron or iron compounds for higher inductance values</li>
+                    <li><strong>Ferrite-core inductors:</strong> Use ferrite materials to increase inductance and efficiency</li>
+                    <li><strong>Toroidal inductors:</strong> Ring-shaped inductors that minimize electromagnetic interference</li>
+                </ul>
+                
+                <h4>Transformers</h4>
+                <p>Transformers are passive devices that transfer electrical energy from one circuit to another through electromagnetic induction. They consist of two or more coils of wire wound around a common core.</p>
+                
+                <div class="latex-block">
+                    $$\frac{V_s}{V_p} = \frac{N_s}{N_p} = \frac{I_p}{I_s}$$
+                    <p>Where:</p>
+                    $$\begin{array}{l}
+                    V_s = \text{Secondary voltage} \\
+                    V_p = \text{Primary voltage} \\
+                    N_s = \text{Number of secondary windings} \\
+                    N_p = \text{Number of primary windings} \\
+                    I_p = \text{Primary current} \\
+                    I_s = \text{Secondary current}
+                    \end{array}$$
+                </div>
+                
+                <h4>Inductors and Transformers in Circuits</h4>
+                <p>These components serve important functions in electronic circuits:</p>
+                <ul>
+                    <li><strong>Filtering:</strong> Inductors block high-frequency signals while passing low-frequency signals</li>
+                    <li><strong>Energy storage:</strong> Inductors store energy in switched-mode power supplies</li>
+                    <li><strong>Voltage transformation:</strong> Transformers step voltage up or down in power distribution systems</li>
+                    <li><strong>Isolation:</strong> Transformers provide electrical isolation between circuits</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Diodes and Their Applications</h3>
+                <p>Diodes are semiconductor devices that allow current to flow in one direction while blocking it in the other. They are commonly used for rectification, voltage regulation, and protection.</p>
+                
+                <h4>Types of Diodes</h4>
+                <p>There are several types of diodes, including:</p>
+                <ul>
+                    <li><strong>Rectifier diodes:</strong> Used for converting AC to DC</li>
+                    <li><strong>Zener diodes:</strong> Used for voltage regulation</li>
+                    <li><strong>Schottky diodes:</strong> Used for high-frequency applications</li>
+                    <li><strong>Light-emitting diodes (LEDs):</strong> Used for indication and lighting</li>
+                </ul>
+                
+                <h4>Diodes in Circuits</h4>
+                <p>Diodes serve multiple purposes in electronic circuits:</p>
+                <ul>
+                    <li><strong>Rectification:</strong> Convert AC to DC</li>
+                    <li><strong>Voltage regulation:</strong> Regulate voltage levels</li>
+                    <li><strong>Protection:</strong> Protect components from excessive voltage or current</li>
+                    <li><strong>Indication:</strong> Provide visual indication of circuit status</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Transistors (BJT and MOSFET)</h3>
+                <p>Transistors are semiconductor devices that amplify or switch electronic signals. They are commonly used for amplification, switching, and voltage regulation.</p>
+                
+                <h4>Types of Transistors</h4>
+                <p>There are two main types of transistors:</p>
+                <ul>
+                    <li><strong>Bipolar Junction Transistors (BJTs):</strong> Use both positive and negative charge carriers</li>
+                    <li><strong>Metal-Oxide-Semiconductor Field-Effect Transistors (MOSFETs):</strong> Use only one type of charge carrier</li>
+                </ul>
+                
+                <h4>Transistors in Circuits</h4>
+                <p>Transistors serve multiple purposes in electronic circuits:</p>
+                <ul>
+                    <li><strong>Amplification:</strong> Amplify weak signals</li>
+                    <li><strong>Switching:</strong> Switch electronic signals on or off</li>
+                    <li><strong>Voltage regulation:</strong> Regulate voltage levels</li>
+                    <li><strong>Current control:</strong> Control current flow</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Integrated Circuits</h3>
+                <p>Integrated circuits (ICs) are semiconductor devices that contain a large number of electronic components, such as transistors, diodes, and resistors, on a single chip of silicon.</p>
+                
+                <h4>Types of Integrated Circuits</h4>
+                <p>There are several types of ICs, including:</p>
+                <ul>
+                    <li><strong>Analog ICs:</strong> Process continuous signals</li>
+                    <li><strong>Digital ICs:</strong> Process discrete signals</li>
+                    <li><strong>Mixed-signal ICs:</strong> Process both analog and digital signals</li>
+                </ul>
+                
+                <h4>Integrated Circuits in Circuits</h4>
+                <p>ICs serve multiple purposes in electronic circuits:</p>
+                <ul>
+                    <li><strong>Signal processing:</strong> Process and manipulate electronic signals</li>
+                    <li><strong>Control systems:</strong> Control and regulate electronic systems</li>
+                    <li><strong>Communication systems:</strong> Enable communication between electronic devices</li>
+                    <li><strong>Computing systems:</strong> Perform computational tasks</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Practical Applications in Robotics</h3>
+                <p>Circuit components are used extensively in robotics for a variety of applications, including:</p>
+                <ul>
+                    <li><strong>Motor control:</strong> Control the speed and direction of motors</li>
+                    <li><strong>Sensor integration:</strong> Interface with sensors to perceive the environment</li>
+                    <li><strong>Power management:</strong> Manage power consumption and distribution</li>
+                    <li><strong>Communication systems:</strong> Enable communication between robots and other devices</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Safety Considerations</h3>
+                <p>When working with electronic components, it's essential to consider safety:</p>
+                <ul>
+                    <li><strong>Electrostatic discharge (ESD):</strong> Can damage sensitive electronic components</li>
+                    <li><strong>High voltage:</strong> Can cause electrical shock and injury</li>
+                    <li><strong>Heat:</strong> Some components can get very hot during operation</li>
+                    <li><strong>Polarity:</strong> Connecting components with incorrect polarity can damage them</li>
+                </ul>
+                
+                <div class="note-box">
+                    <strong>Safety Tips:</strong>
+                    <ul>
+                        <li>Use an anti-static wrist strap when handling sensitive components</li>
+                        <li>Always disconnect power sources before working on circuits</li>
+                        <li>Use appropriate tools and safety equipment</li>
+                        <li>Double-check polarities before applying power</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>
+                        <p>Calculate the total resistance of the following resistors connected in series: 100Ω, 220Ω, and 330Ω.</p>
+                    </li>
+                    <li>
+                        <p>Calculate the total capacitance of three capacitors (10µF, 22µF, and 47µF) connected in parallel.</p>
+                    </li>
+                    <li>
+                        <p>Identify the colors on a resistor with the value 4.7kΩ with a 5% tolerance.</p>
+                    </li>
+                    <li>
+                        <p>Design a simple voltage divider circuit to convert a 9V battery voltage to approximately 5V for an Arduino input.</p>
+                    </li>
+                    <li>
+                        <p>Explain how you would use a capacitor to filter out high-frequency noise from a power supply.</p>
+                    </li>
+                </ol>
+                
+                <p>Try to solve these exercises on your own, and check the solutions in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Practical Applications in Robotics</h3>
+                <p>Circuit components are used extensively in robotics for a variety of applications, including:</p>
+                <ul>
+                    <li><strong>Motor control:</strong> Control the speed and direction of motors</li>
+                    <li><strong>Sensor integration:</strong> Interface with sensors to perceive the environment</li>
+                    <li><strong>Power management:</strong> Manage power consumption and distribution</li>
+                    <li><strong>Communication systems:</strong> Enable communication between robots and other devices</li>
+                </ul>
             </section>
             
             <section>
                 <h3>Solutions to Lesson 3 Exercises</h3>
-                <p>Coming soon...</p>
+                <ol>
+                    <li>
+                        <p><strong>Question:</strong> Implement a 3-input AND gate using only 2-input AND gates.</p>
+                        <p><strong>Solution:</strong> Connect two 2-input AND gates in series. The first gate takes inputs A and B, and its output goes to the second gate along with input C. This creates the function A AND B AND C.</p>
+                        <div class="latex-block">
+                            $$\text{Output} = (A \land B) \land C = A \land B \land C$$
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Design a circuit that outputs 1 if exactly one of its three inputs is 1.</p>
+                        <p><strong>Solution:</strong> This is an exclusive-OR function extended to three inputs. It can be implemented with XOR and AND gates:</p>
+                        <div class="latex-block">
+                            $$\text{Output} = (A \oplus B \oplus C) \land \neg(A \land B) \land \neg(B \land C) \land \neg(A \land C)$$
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Convert the boolean expression $$(A \lor B) \land \neg C$$ into a circuit using basic logic gates.</p>
+                        <p><strong>Solution:</strong> The circuit requires one OR gate, one NOT gate, and one AND gate. Connect inputs A and B to the OR gate, pass input C through the NOT gate, and connect the outputs of both to the AND gate.</p>
+                    </li>
+                </ol>
             </section>
         </article>
 

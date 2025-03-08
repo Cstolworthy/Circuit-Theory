@@ -6,6 +6,17 @@
     <title>Lesson 7: Buttons & Switches | Circuit Theory & Robotics</title>
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script.js" defer></script>
+    <!-- MathJax for LaTeX support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Additional styles for LaTeX content */
+        .latex-block {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -307,7 +318,222 @@ void loop() {
             
             <section>
                 <h3>Solutions to Lesson 6 Exercises</h3>
-                <p>Coming soon...</p>
+                <ol>
+                    <li>
+                        <p><strong>Question:</strong> Calculate the appropriate resistor value for a blue LED (forward voltage 3.2V) powered by a 9V battery.</p>
+                        <p><strong>Solution:</strong> To calculate the resistor value, we use Ohm's Law:</p>
+                        <div class="latex-block">
+                            $$R = \frac{V_{supply} - V_{forward}}{I_{desired}}$$
+                        </div>
+                        <p>For a blue LED:</p>
+                        <ul>
+                            <li>Supply voltage ($V_{supply}$) = 9V</li>
+                            <li>LED forward voltage ($V_{forward}$) = 3.2V</li>
+                            <li>Typical desired current ($I_{desired}$) = 20mA = 0.02A</li>
+                        </ul>
+                        <div class="latex-block">
+                            $$R = \frac{9V - 3.2V}{0.02A} = \frac{5.8V}{0.02A} = 290\Omega$$
+                        </div>
+                        <p>Using the standard resistor value closest to 290Ω, we would select a 330Ω resistor. This would give a slightly lower current (around 17.6mA), which is within the safe operating range for the LED.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Design a circuit with three LEDs that light up in sequence, creating a "chasing" effect.</p>
+                        <p><strong>Solution:</strong> This can be implemented using a microcontroller (like Arduino) or discrete components:</p>
+                        <p>Using Arduino:</p>
+                        <div class="code-block">
+                            <pre>
+// Arduino solution for LED chasing effect
+const int led1 = 9;  // First LED on pin 9
+const int led2 = 10; // Second LED on pin 10
+const int led3 = 11; // Third LED on pin 11
+const int delayTime = 200; // Time between transitions in milliseconds
+
+void setup() {
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+}
+
+void loop() {
+  // First LED on, others off
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  delay(delayTime);
+  
+  // Second LED on, others off
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, HIGH);
+  digitalWrite(led3, LOW);
+  delay(delayTime);
+  
+  // Third LED on, others off
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, HIGH);
+  delay(delayTime);
+}
+                            </pre>
+                        </div>
+                        <p>Using discrete components:</p>
+                        <p>A 555 timer IC can be configured as an astable multivibrator to drive a 4017 decade counter. The first three outputs of the 4017 (Q0, Q1, Q2) connect to three LEDs through current-limiting resistors. The clock pin of the 4017 receives the square wave output from the 555 timer. The 4017's reset pin (pin 15) should be connected to Q3 to reset the counter after the third LED, creating a continuous chase effect.</p>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Modify the PWM example to create a "breathing" effect where the LED smoothly transitions between off and on.</p>
+                        <p><strong>Solution:</strong> A breathing effect requires a sinusoidal or triangular pattern of brightness change:</p>
+                        <div class="code-block">
+                            <pre>
+// Arduino solution for LED breathing effect
+const int ledPin = 9;  // LED connected to pin 9 (PWM)
+                        
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Fade in
+  for (int brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(ledPin, brightness);
+    delay(5);  // Adjust for faster/slower breathing
+  }
+  
+  // Fade out
+  for (int brightness = 255; brightness >= 0; brightness--) {
+    analogWrite(ledPin, brightness);
+    delay(5);  // Adjust for faster/slower breathing
+  }
+}
+                            </pre>
+                        </div>
+                        <p>For a more natural breathing effect, a sinusoidal pattern can be used:</p>
+                        <div class="code-block">
+                            <pre>
+// More natural breathing using sine wave
+const int ledPin = 9;  // LED connected to pin 9 (PWM)
+                        
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Use sine function to create a smooth, natural transition
+  for (int i = 0; i < 360; i++) {
+    // Convert sine wave (-1 to 1) to PWM range (0 to 255)
+    float val = (sin(radians(i)) + 1) / 2;
+    int brightness = int(val * 255);
+    
+    analogWrite(ledPin, brightness);
+    delay(5);  // Adjust for faster/slower breathing
+  }
+}
+                            </pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Design a circuit that uses a button to toggle between two different LEDs.</p>
+                        <p><strong>Solution:</strong> This requires a button input to toggle which LED is active:</p>
+                        <div class="code-block">
+                            <pre>
+// Arduino solution for toggling between two LEDs with a button
+const int buttonPin = 2;  // Button connected to pin 2
+const int led1Pin = 9;    // First LED connected to pin 9
+const int led2Pin = 10;   // Second LED connected to pin 10
+
+int ledState = 0;         // 0 = first LED on, 1 = second LED on
+int lastButtonState = LOW;
+int buttonState;
+unsigned long lastDebounceTime = 0;
+unsigned long debounceDelay = 50;  // Debounce time in milliseconds
+
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(led1Pin, OUTPUT);
+  pinMode(led2Pin, OUTPUT);
+  
+  // Initial state: LED1 on, LED2 off
+  digitalWrite(led1Pin, HIGH);
+  digitalWrite(led2Pin, LOW);
+}
+
+void loop() {
+  // Read the button state
+  int reading = digitalRead(buttonPin);
+  
+  // Check if button state changed
+  if (reading != lastButtonState) {
+    lastDebounceTime = millis();
+  }
+  
+  // If button state has been stable for the debounce delay
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    // If the button state has changed
+    if (reading != buttonState) {
+      buttonState = reading;
+      
+      // If the button is pressed (LOW due to INPUT_PULLUP)
+      if (buttonState == LOW) {
+        // Toggle the LED state
+        ledState = !ledState;
+        
+        // Update the LEDs based on new state
+        if (ledState == 0) {
+          digitalWrite(led1Pin, HIGH);
+          digitalWrite(led2Pin, LOW);
+        } else {
+          digitalWrite(led1Pin, LOW);
+          digitalWrite(led2Pin, HIGH);
+        }
+      }
+    }
+  }
+  
+  lastButtonState = reading;
+}
+                            </pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>Question:</strong> Create a simple LED bar graph that could be used to display sensor readings in a visual format.</p>
+                        <p><strong>Solution:</strong> An LED bar graph displays values using multiple LEDs in a row:</p>
+                        <div class="code-block">
+                            <pre>
+// Arduino solution for LED bar graph
+const int sensorPin = A0;  // Analog sensor connected to A0
+const int ledCount = 5;    // Number of LEDs in bar graph
+const int ledPins[] = {9, 10, 11, 12, 13};  // LED pins
+
+void setup() {
+  // Initialize LED pins as outputs
+  for (int i = 0; i < ledCount; i++) {
+    pinMode(ledPins[i], OUTPUT);
+  }
+}
+
+void loop() {
+  // Read the sensor value (0-1023)
+  int sensorValue = analogRead(sensorPin);
+  
+  // Map sensor value to number of LEDs to light
+  // For example, if sensor reads 0, no LEDs light
+  // If sensor reads 1023, all LEDs light
+  int ledsToLight = map(sensorValue, 0, 1023, 0, ledCount);
+  
+  // Light up the appropriate number of LEDs
+  for (int i = 0; i < ledCount; i++) {
+    if (i < ledsToLight) {
+      digitalWrite(ledPins[i], HIGH);  // Turn on LED
+    } else {
+      digitalWrite(ledPins[i], LOW);   // Turn off LED
+    }
+  }
+  
+  delay(100);  // Small delay for stability
+}
+                            </pre>
+                        </div>
+                        <p>For a more advanced solution, you could create a bargraph that uses gradually increasing brightness for the last LED to show more precise readings between discrete LED steps.</p>
+                    </li>
+                </ol>
             </section>
             
             <section>
