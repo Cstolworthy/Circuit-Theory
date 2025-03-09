@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button with Pull-Up Resistor Circuit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+        }
+        .diagram {
+            width: 800px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            position: relative;
+            background-color: white;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .instruction {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Button with Pull-Up Resistor</div>
+    
+    <div class="diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400">
+            <!-- Background -->
+            <rect x="0" y="0" width="800" height="400" fill="white"/>
+            
+            <!-- Grid (subtle) -->
+            <g stroke="#f0f0f0" stroke-width="1">
+                <line x1="0" y1="40" x2="800" y2="40"/>
+                <line x1="0" y1="80" x2="800" y2="80"/>
+                <line x1="0" y1="120" x2="800" y2="120"/>
+                <line x1="0" y1="160" x2="800" y2="160"/>
+                <line x1="0" y1="200" x2="800" y2="200"/>
+                <line x1="0" y1="240" x2="800" y2="240"/>
+                <line x1="0" y1="280" x2="800" y2="280"/>
+                <line x1="0" y1="320" x2="800" y2="320"/>
+                <line x1="0" y1="360" x2="800" y2="360"/>
+                <line x1="0" y1="400" x2="800" y2="400"/>
+                
+                <line x1="50" y1="0" x2="50" y2="400"/>
+                <line x1="100" y1="0" x2="100" y2="400"/>
+                <line x1="150" y1="0" x2="150" y2="400"/>
+                <line x1="200" y1="0" x2="200" y2="400"/>
+                <line x1="250" y1="0" x2="250" y2="400"/>
+                <line x1="300" y1="0" x2="300" y2="400"/>
+                <line x1="350" y1="0" x2="350" y2="400"/>
+                <line x1="400" y1="0" x2="400" y2="400"/>
+                <line x1="450" y1="0" x2="450" y2="400"/>
+                <line x1="500" y1="0" x2="500" y2="400"/>
+                <line x1="550" y1="0" x2="550" y2="400"/>
+                <line x1="600" y1="0" x2="600" y2="400"/>
+                <line x1="650" y1="0" x2="650" y2="400"/>
+                <line x1="700" y1="0" x2="700" y2="400"/>
+                <line x1="750" y1="0" x2="750" y2="400"/>
+            </g>
+            
+            <!-- Main Circuit (Horizontal layout) -->
+            <!-- VCC Symbol on left -->
+            <line x1="80" y1="160" x2="130" y2="160" stroke="#000" stroke-width="2" />
+            <line x1="80" y1="145" x2="80" y2="175" stroke="#000" stroke-width="2" />
+            <text x="40" y="140" font-family="Arial" font-size="14" font-weight="bold">VCC</text>
+            <text x="30" y="160" font-family="Arial" font-size="14" font-weight="bold">(5V or 3.3V)</text>
+            
+            <!-- Resistor Symbol (horizontal) -->
+            <line x1="130" y1="160" x2="140" y2="160" stroke="#000" stroke-width="2" />
+            <!-- Zigzag resistor -->
+            <path d="M140,160 L145,150 L155,170 L165,150 L175,170 L185,150 L195,170 L200,160" 
+                  stroke="#000" stroke-width="2" fill="none" />
+            <line x1="200" y1="160" x2="240" y2="160" stroke="#000" stroke-width="2" />
+            <text x="150" y="130" font-family="Arial" font-size="14">Pull-Up Resistor</text>
+            <text x="150" y="145" font-family="Arial" font-size="14">(Typically 10kΩ)</text>
+            
+            <!-- Button/Switch (horizontal) -->
+            <line x1="240" y1="160" x2="260" y2="160" stroke="#000" stroke-width="2" />
+            <!-- Button housing -->
+            <rect x="260" y="135" width="50" height="50" fill="none" stroke="#000" stroke-width="1.5" rx="2" ry="2" />
+            <!-- Button contacts -->
+            <circle cx="275" cy="145" r="5" fill="white" stroke="#000" stroke-width="1.5" />
+            <circle cx="275" cy="175" r="5" fill="white" stroke="#000" stroke-width="1.5" />
+            <!-- Connection line (dashed when open) -->
+            <line x1="275" y1="145" x2="275" y2="175" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3" />
+            <text x="260" y="200" font-family="Arial" font-size="14" font-weight="bold">Button</text>
+            
+            <!-- Connection from button to input pin -->
+            <line x1="310" y1="160" x2="340" y2="160" stroke="#000" stroke-width="2" />
+            
+            <!-- Microcontroller Pin Symbol -->
+            <rect x="340" y="140" width="60" height="40" stroke="#000" stroke-width="2" fill="#f5f5f5" rx="3" ry="3" />
+            <text x="348" y="165" font-family="Arial" font-size="14">Input Pin</text>
+            
+            <!-- Ground Symbol (on right) -->
+            <line x1="400" y1="160" x2="430" y2="160" stroke="#000" stroke-width="2" />
+            <line x1="430" y1="160" x2="430" y2="210" stroke="#000" stroke-width="2" />
+            <line x1="410" y1="210" x2="450" y2="210" stroke="#000" stroke-width="2" />
+            <line x1="415" y1="220" x2="445" y2="220" stroke="#000" stroke-width="2" />
+            <line x1="420" y1="230" x2="440" y2="230" stroke="#000" stroke-width="2" />
+            <text x="420" y="250" font-family="Arial" font-size="14" font-weight="bold">GND (0V)</text>
+            
+            <!-- State Indicators -->
+            <g transform="translate(80, 30)">
+                <text font-family="Arial" font-size="14" font-weight="bold" fill="#006600">When Button NOT Pressed:</text>
+                <text x="20" y="25" font-family="Arial" font-size="13" fill="#006600">• Pin reads HIGH (1)</text>
+                <text x="20" y="45" font-family="Arial" font-size="13" fill="#006600">• Current flows through resistor only</text>
+                <text x="20" y="65" font-family="Arial" font-size="13" fill="#006600">• Default state when initialized</text>
+            </g>
+            
+            <g transform="translate(320, 30)">
+                <text font-family="Arial" font-size="14" font-weight="bold" fill="#990000">When Button Pressed:</text>
+                <text x="20" y="25" font-family="Arial" font-size="13" fill="#990000">• Pin reads LOW (0)</text>
+                <text x="20" y="45" font-family="Arial" font-size="13" fill="#990000">• Current flows directly to ground</text>
+                <text x="20" y="65" font-family="Arial" font-size="13" fill="#990000">• Creates path of least resistance</text>
+            </g>
+            
+            <!-- Current flow arrows -->
+            <!-- Not pressed state - current through resistor -->
+            <path d="M160,140 C170,120 180,115 190,110" stroke="#006600" stroke-width="1.5" fill="none" marker-end="url(#arrow)" />
+            
+            <!-- Pressed state - current to ground -->
+            <path d="M370,190 C380,195 400,200 420,208" stroke="#990000" stroke-width="1.5" fill="none" marker-end="url(#arrow)" stroke-dasharray="4,2" />
+            
+            <!-- Arrow marker definition -->
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                    markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor" />
+                </marker>
+            </defs>
+            
+            <!-- Optional connection to illustrate current path -->
+            <line x1="275" y1="210" x2="275" y2="175" stroke="#990000" stroke-width="1" stroke-dasharray="4,2" />
+            <line x1="275" y1="210" x2="430" y2="210" stroke="#990000" stroke-width="1" stroke-dasharray="4,2" />
+        </svg>
+    </div>
+    
+    <div class="instruction">
+        To save this as an image, take a screenshot or use browser's "Save as" feature.
+    </div>
+</body>
+</html>
