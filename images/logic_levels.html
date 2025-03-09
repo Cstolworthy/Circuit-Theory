@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Levels Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+        }
+        .diagram {
+            width: 800px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            position: relative;
+            background-color: white;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .label {
+            position: absolute;
+            font-size: 14px;
+        }
+        .bold-label {
+            font-weight: bold;
+        }
+        .voltage-line {
+            position: absolute;
+            height: 2px;
+        }
+        .threshold-line {
+            position: absolute;
+            height: 1px;
+            border-top: 2px dashed #888;
+        }
+        .region {
+            position: absolute;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .vertical-line {
+            position: absolute;
+            width: 2px;
+            background-color: #000;
+        }
+        .horizontal-line {
+            position: absolute;
+            height: 2px;
+            background-color: #000;
+        }
+        .instruction {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Digital Logic Levels: 5V vs 3.3V Systems</div>
+    
+    <div class="diagram">
+        <!-- Title -->
+        <div class="label bold-label" style="top: 20px; left: 300px; font-size: 18px;">Logic Level Thresholds</div>
+        
+        <!-- 5V System -->
+        <div class="label bold-label" style="top: 60px; left: 150px; font-size: 18px; color: #0066cc;">5V System</div>
+        
+        <!-- 3.3V System -->
+        <div class="label bold-label" style="top: 60px; left: 500px; font-size: 18px; color: #cc0000;">3.3V System</div>
+        
+        <!-- Vertical axes -->
+        <div class="vertical-line" style="top: 100px; left: 100px; height: 300px;"></div>
+        <div class="vertical-line" style="top: 100px; left: 450px; height: 300px;"></div>
+        
+        <!-- Horizontal baselines -->
+        <div class="horizontal-line" style="top: 400px; left: 100px; width: 300px;"></div>
+        <div class="horizontal-line" style="top: 400px; left: 450px; width: 300px;"></div>
+        
+        <!-- 5V System Voltage Lines -->
+        <div class="voltage-line" style="top: 120px; left: 100px; width: 300px; background-color: #0066cc;"></div>
+        <div class="threshold-line" style="top: 200px; left: 100px; width: 300px;"></div>
+        <div class="threshold-line" style="top: 320px; left: 100px; width: 300px;"></div>
+        <div class="voltage-line" style="top: 400px; left: 100px; width: 300px; background-color: #0066cc;"></div>
+        
+        <!-- 3.3V System Voltage Lines -->
+        <div class="voltage-line" style="top: 150px; left: 450px; width: 300px; background-color: #cc0000;"></div>
+        <div class="threshold-line" style="top: 200px; left: 450px; width: 300px;"></div>
+        <div class="threshold-line" style="top: 320px; left: 450px; width: 300px;"></div>
+        <div class="voltage-line" style="top: 400px; left: 450px; width: 300px; background-color: #cc0000;"></div>
+        
+        <!-- 5V System Labels -->
+        <div class="label" style="top: 118px; left: 60px;">5.0V</div>
+        <div class="label" style="top: 198px; left: 60px;">2.0V (VIH min)</div>
+        <div class="label" style="top: 318px; left: 60px;">0.8V (VIL max)</div>
+        <div class="label" style="top: 398px; left: 75px;">0V</div>
+        
+        <!-- 3.3V System Labels -->
+        <div class="label" style="top: 148px; left: 410px;">3.3V</div>
+        <div class="label" style="top: 198px; left: 410px;">2.0V (VIH min)</div>
+        <div class="label" style="top: 318px; left: 410px;">0.8V (VIL max)</div>
+        <div class="label" style="top: 398px; left: 425px;">0V</div>
+        
+        <!-- 5V System Regions -->
+        <div class="region" style="top: 120px; left: 200px; width: 100px; height: 80px; background-color: #ccffcc;">
+            HIGH
+        </div>
+        <div class="region" style="top: 200px; left: 200px; width: 100px; height: 120px; background-color: #ffffcc;">
+            UNDEFINED
+        </div>
+        <div class="region" style="top: 320px; left: 200px; width: 100px; height: 80px; background-color: #ccffcc;">
+            LOW
+        </div>
+        
+        <!-- 3.3V System Regions -->
+        <div class="region" style="top: 150px; left: 550px; width: 100px; height: 50px; background-color: #ccffcc;">
+            HIGH
+        </div>
+        <div class="region" style="top: 200px; left: 550px; width: 100px; height: 120px; background-color: #ffffcc;">
+            UNDEFINED
+        </div>
+        <div class="region" style="top: 320px; left: 550px; width: 100px; height: 80px; background-color: #ccffcc;">
+            LOW
+        </div>
+    </div>
+    
+    <div class="instruction">
+        To save this as an image, take a screenshot or use browser's "Save as" feature.
+    </div>
+</body>
+</html>

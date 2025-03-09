@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Pin Oscilloscope Reading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: white;
+        }
+        .diagram {
+            width: 800px;
+            height: 500px;
+            border: 1px solid #333;
+            margin: 0 auto;
+            position: relative;
+            background-color: #001a00;
+            overflow: hidden;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .oscilloscope-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .h-line {
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background-color: rgba(0, 255, 0, 0.2);
+        }
+        .v-line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background-color: rgba(0, 255, 0, 0.2);
+        }
+        .signal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .label {
+            position: absolute;
+            color: #00ff00;
+            font-size: 14px;
+        }
+        .axis-label {
+            position: absolute;
+            color: #00ff00;
+            font-size: 12px;
+        }
+        .instruction {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Floating Pin Oscilloscope Reading</div>
+    
+    <div class="diagram">
+        <!-- Oscilloscope grid (horizontal lines) -->
+        <div class="oscilloscope-grid">
+            <div class="h-line" style="top: 50px;"></div>
+            <div class="h-line" style="top: 100px;"></div>
+            <div class="h-line" style="top: 150px;"></div>
+            <div class="h-line" style="top: 200px;"></div>
+            <div class="h-line" style="top: 250px;"></div>
+            <div class="h-line" style="top: 300px;"></div>
+            <div class="h-line" style="top: 350px;"></div>
+            <div class="h-line" style="top: 400px;"></div>
+            <div class="h-line" style="top: 450px;"></div>
+            
+            <!-- Oscilloscope grid (vertical lines) -->
+            <div class="v-line" style="left: 50px;"></div>
+            <div class="v-line" style="left: 100px;"></div>
+            <div class="v-line" style="left: 150px;"></div>
+            <div class="v-line" style="left: 200px;"></div>
+            <div class="v-line" style="left: 250px;"></div>
+            <div class="v-line" style="left: 300px;"></div>
+            <div class="v-line" style="left: 350px;"></div>
+            <div class="v-line" style="left: 400px;"></div>
+            <div class="v-line" style="left: 450px;"></div>
+            <div class="v-line" style="left: 500px;"></div>
+            <div class="v-line" style="left: 550px;"></div>
+            <div class="v-line" style="left: 600px;"></div>
+            <div class="v-line" style="left: 650px;"></div>
+            <div class="v-line" style="left: 700px;"></div>
+            <div class="v-line" style="left: 750px;"></div>
+        </div>
+        
+        <!-- Random signal line (SVG for better curve) -->
+        <svg class="signal" width="800" height="500">
+            <!-- The random signal trace -->
+            <path d="M0,250 
+                     C30,150 50,330 70,280 
+                     S100,100 120,400 
+                     S150,200 180,350 
+                     S210,170 240,390 
+                     S270,50 300,200 
+                     S330,250 360,300 
+                     S390,100 420,250 
+                     S450,350 480,100 
+                     S510,300 540,200 
+                     S570,380 600,150 
+                     S630,250 660,350 
+                     S690,100 720,300 
+                     S750,250 780,300 
+                     S790,150 800,250" 
+                  stroke="#00ff00" 
+                  stroke-width="2" 
+                  fill="none" />
+            
+            <!-- Threshold lines representing HIGH and LOW -->
+            <line x1="0" y1="150" x2="800" y1="150" x2="150" 
+                  stroke="#ff9900" stroke-width="1" stroke-dasharray="5,5" />
+            <line x1="0" y1="350" x2="800" y1="350" x2="350" 
+                  stroke="#ff9900" stroke-width="1" stroke-dasharray="5,5" />
+        </svg>
+        
+        <!-- Voltage axis labels -->
+        <div class="axis-label" style="top: 145px; left: 10px;">VIH (2.0V)</div>
+        <div class="axis-label" style="top: 345px; left: 10px;">VIL (0.8V)</div>
+        <div class="axis-label" style="top: 245px; left: 10px;">~1.5V</div>
+        
+        <!-- Time axis label -->
+        <div class="axis-label" style="bottom: 10px; right: 10px;">Time →</div>
+        
+        <!-- Annotations -->
+        <div class="label" style="top: 50px; left: 50px;">Floating Pin Signal</div>
+        <div class="label" style="top: 420px; left: 280px;">Random fluctuations due to electrical noise</div>
+        <div class="label" style="top: 380px; left: 600px;">100ms/div</div>
+    </div>
+    
+    <div class="instruction">
+        To save this as an image, take a screenshot or use browser's "Save as" feature.
+    </div>
+</body>
+</html>

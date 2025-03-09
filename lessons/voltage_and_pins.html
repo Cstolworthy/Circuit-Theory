@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltage Fundamentals & Pin States | Circuit Theory & Robotics</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js" defer></script>
+    <!-- MathJax for LaTeX support -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Additional styles for LaTeX content */
+        .latex-block {
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Circuit Theory & Robotics</h1>
+            <p class="tagline">A comprehensive guide to understanding circuits and building robots</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="lesson-nav">
+            <a href="../index.html">← Back to Course Overview</a>
+        </div>
+
+        <article class="lesson-content">
+            <h2>Voltage Fundamentals & Pin States</h2>
+            
+            <section>
+                <h3>Introduction</h3>
+                <p>Understanding voltage, current, and pin states is fundamental to working with electronics and robotics. This lesson covers these essential concepts that form the foundation of all circuit design and troubleshooting.</p>
+                <p>We'll explore what voltage really means, how pins work in electronic components, and critical concepts like floating pins that can cause unexpected behavior in your circuits.</p>
+            </section>
+            
+            <section>
+                <h3>Voltage Fundamentals</h3>
+                <p>Voltage is one of the most fundamental concepts in electronics, yet it's often misunderstood by beginners.</p>
+                
+                <h4>What is Voltage?</h4>
+                <p>Voltage (measured in volts, V) is the <strong>electric potential difference</strong> between two points in a circuit. It represents the "pressure" or "force" that pushes electric charges through a conductor.</p>
+                
+                <div class="info-box">
+                    <h5>Key Voltage Concepts:</h5>
+                    <ul>
+                        <li><strong>Voltage is always measured between two points</strong> - it's never an absolute value at a single point</li>
+                        <li><strong>Voltage is the "push"</strong> that causes current to flow through a circuit</li>
+                        <li><strong>Ground (0V)</strong> serves as the reference point for measuring voltages in a circuit</li>
+                    </ul>
+                </div>
+                
+                <h4>The Water Analogy</h4>
+                <p>A helpful way to understand voltage is to think of it like water pressure in a pipe system:</p>
+                <ul>
+                    <li><strong>Voltage</strong> is like water pressure (the "push")</li>
+                    <li><strong>Current</strong> is like water flow rate (how much water flows per second)</li>
+                    <li><strong>Resistance</strong> is like the pipe diameter (narrower pipes resist flow)</li>
+                </ul>
+                
+                <div class="latex-block">
+                    <p>Ohm's Law relates these concepts:</p>
+                    $$V = I \times R$$
+                    <p>Where:</p>
+                    $$\begin{array}{l}
+                    V = \text{Voltage (volts)} \\
+                    I = \text{Current (amperes)} \\
+                    R = \text{Resistance (ohms)}
+                    \end{array}$$
+                </div>
+                
+                <h4>Common Voltage Levels</h4>
+                <p>In digital electronics, you'll typically encounter these voltage levels:</p>
+                <ul>
+                    <li><strong>5V</strong> - Traditional logic level for many microcontrollers and digital ICs</li>
+                    <li><strong>3.3V</strong> - Common in modern low-power devices and microcontrollers</li>
+                    <li><strong>1.8V or lower</strong> - Used in very low-power or high-speed digital systems</li>
+                    <li><strong>12V</strong> - Often used for motors and higher-power components</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h3>Digital Logic Levels</h3>
+                <p>In digital electronics, voltage levels are used to represent binary states (0 and 1). Understanding these logic levels is crucial for working with microcontrollers and digital circuits.</p>
+                
+                <h4>Binary States: HIGH and LOW</h4>
+                <p>Digital circuits operate using two voltage states:</p>
+                <ul>
+                    <li><strong>HIGH (Logic 1)</strong> - Typically represented by a voltage near the supply voltage (e.g., 5V or 3.3V)</li>
+                    <li><strong>LOW (Logic 0)</strong> - Typically represented by a voltage near ground (0V)</li>
+                </ul>
+                
+                <div class="component-image">
+                    <iframe src="../images/logic_levels.html" width="800" height="500" frameborder="0" scrolling="no"></iframe>
+                    <p class="image-caption">Figure 1: Standard logic level thresholds for 5V and 3.3V systems</p>
+                </div>
+                
+                <h4>Threshold Voltages</h4>
+                <p>Digital circuits have specific threshold voltages that determine whether an input is recognized as HIGH or LOW:</p>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>5V System</th>
+                                <th>3.3V System</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>V<sub>IH</sub> (min)</td>
+                                <td>2.0V</td>
+                                <td>2.0V</td>
+                                <td>Minimum voltage recognized as HIGH input</td>
+                            </tr>
+                            <tr>
+                                <td>V<sub>IL</sub> (max)</td>
+                                <td>0.8V</td>
+                                <td>0.8V</td>
+                                <td>Maximum voltage recognized as LOW input</td>
+                            </tr>
+                            <tr>
+                                <td>V<sub>OH</sub> (min)</td>
+                                <td>4.2V</td>
+                                <td>2.4V</td>
+                                <td>Minimum voltage output when driving HIGH</td>
+                            </tr>
+                            <tr>
+                                <td>V<sub>OL</sub> (max)</td>
+                                <td>0.5V</td>
+                                <td>0.4V</td>
+                                <td>Maximum voltage output when driving LOW</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="warning-box">
+                    <h5>Voltage Level Compatibility Warning</h5>
+                    <p>Connecting components with different voltage levels (e.g., 5V and 3.3V) directly can damage the lower-voltage component! Always use level shifters or voltage dividers when interfacing between different voltage standards.</p>
+                </div>
+                
+                <h4>Noise Margins</h4>
+                <p>The difference between the input threshold and output levels creates a <strong>noise margin</strong> that provides immunity to electrical noise:</p>
+                <ul>
+                    <li><strong>High-level noise margin</strong> = V<sub>OH</sub> (min) - V<sub>IH</sub> (min)</li>
+                    <li><strong>Low-level noise margin</strong> = V<sub>IL</sub> (max) - V<sub>OL</sub> (max)</li>
+                </ul>
+                <p>Larger noise margins make digital circuits more reliable in noisy environments.</p>
+            </section>
+            
+            <section>
+                <h3>Understanding Floating Pins</h3>
+                <p>One of the most common sources of problems in digital circuits is <strong>floating pins</strong>. Understanding this concept is crucial for reliable circuit design.</p>
+                
+                <h4>What is a Floating Pin?</h4>
+                <p>A <strong>floating pin</strong> is an input pin that is not connected to any defined voltage level (neither HIGH nor LOW). It's essentially "floating" in an undefined state.</p>
+                
+                <div class="note-box">
+                    <h5>Why Floating Pins Are Problematic:</h5>
+                    <ul>
+                        <li>They can randomly fluctuate between HIGH and LOW states</li>
+                        <li>They act as tiny antennas, picking up electrical noise from the environment</li>
+                        <li>They cause unpredictable and unreliable circuit behavior</li>
+                        <li>They can lead to increased power consumption</li>
+                    </ul>
+                </div>
+                
+                <div class="component-image">
+                    <iframe src="../images/floating_pin.html" width="800" height="500" frameborder="0" scrolling="no"></iframe>
+                    <p class="image-caption">Figure 2: A floating pin oscilloscope reading showing random fluctuations</p>
+                </div>
+                
+                <h4>Common Floating Pin Scenarios</h4>
+                <p>Floating pins typically occur in these common situations:</p>
+                <ul>
+                    <li><strong>Unused inputs</strong> on a microcontroller or IC</li>
+                    <li><strong>Disconnected sensor pins</strong> from damaged/loose wiring</li>
+                    <li><strong>Button/switch inputs</strong> without proper pull-up/down resistors</li>
+                    <li><strong>Breadboard connections</strong> that have come loose</li>
+                </ul>
+                
+                <h4>How to Fix Floating Pins</h4>
+                <p>There are two primary methods to ensure a pin is never left floating:</p>
+                
+                <h5>1. Pull-Up Resistors</h5>
+                <p>A pull-up resistor connects an input pin to the supply voltage (VCC) through a high-value resistor (typically 10kΩ).</p>
+                
+                <div class="component-image">
+                    <iframe src="../images/pull_up.html" width="500" height="400" frameborder="0" scrolling="no"></iframe>
+                    <p class="image-caption">Figure 3: Pull-up resistor circuit configuration</p>
+                </div>
+                
+                <p>With a pull-up resistor:</p>
+                <ul>
+                    <li>The pin defaults to HIGH when nothing else is connected</li>
+                    <li>To read a LOW, you need to connect the pin to ground (through a button, switch, or sensor)</li>
+                    <li>Common in I²C communication and button interfaces</li>
+                </ul>
+                
+                <h5>2. Pull-Down Resistors</h5>
+                <p>A pull-down resistor connects an input pin to ground through a high-value resistor (typically 10kΩ).</p>
+                
+                <div class="component-image">
+                    <iframe src="../images/pull_down.html" width="500" height="400" frameborder="0" scrolling="no"></iframe>
+                    <p class="image-caption">Figure 4: Pull-down resistor circuit configuration</p>
+                </div>
+                
+                <p>With a pull-down resistor:</p>
+                <ul>
+                    <li>The pin defaults to LOW when nothing else is connected</li>
+                    <li>To read a HIGH, you need to connect the pin to VCC (through a button, switch, or sensor)</li>
+                    <li>Often used with active-high sensors or controls</li>
+                </ul>
+                
+                <h4>Internal Pull-Up/Down Resistors</h4>
+                <p>Many modern microcontrollers (like Arduino, ESP32, and Raspberry Pi) have built-in pull-up or pull-down resistors that can be enabled in software, eliminating the need for external components.</p>
+                
+                <div class="code-block">
+                    <code>
+// Arduino example of enabling internal pull-up resistor
+pinMode(buttonPin, INPUT_PULLUP);  // Enable internal pull-up resistor
+                    </code>
+                </div>
+                
+                <div class="example-box">
+                    <h5>Example: Button Input with Pull-up Resistor</h5>
+                    <div class="component-image">
+                        <iframe src="../images/button_pullup.html" width="500" height="400" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                    <p>In this circuit:</p>
+                    <ul>
+                        <li>When the button is <strong>NOT pressed</strong>, the pull-up resistor ensures the input reads HIGH</li>
+                        <li>When the button is <strong>pressed</strong>, the input is connected directly to ground, reading LOW</li>
+                        <li>Without the pull-up resistor, the input would float when the button is not pressed</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h5>Important Safety Note:</h5>
+                    <p>Never connect an output pin directly to power or ground without a current-limiting resistor, as this could cause a short circuit and damage your components!</p>
+                </div>
+            </section>
+            
+            <section>
+                <h3>Ground and Reference Voltage</h3>
+                <p>Understanding the concept of "ground" is essential in electronics and directly relates to how we handle pins in a circuit.</p>
+                
+                <h4>What is Ground?</h4>
+                <p>Ground (often abbreviated as GND) serves as the reference point for measuring all other voltages in a circuit. It's conventionally defined as 0 volts.</p>
+                
+                <div class="info-box">
+                    <h5>Different Ground Types:</h5>
+                    <ul>
+                        <li><strong>Circuit Ground</strong> - The common reference point in a specific circuit</li>
+                        <li><strong>Earth Ground</strong> - A physical connection to the Earth (used in mains electricity for safety)</li>
+                        <li><strong>Chassis Ground</strong> - Connection to a metal enclosure/chassis (often used in automotive systems)</li>
+                        <li><strong>Virtual Ground</strong> - An artificially created reference point in circuits without access to actual ground</li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h5>Key Ground Concepts:</h5>
+                    <ul>
+                        <li>All ground points within a single circuit should be connected to maintain the same reference voltage</li>
+                        <li>Ground loops (multiple paths to ground) can cause noise and should be avoided</li>
+                        <li>In battery-powered circuits, the negative terminal of the battery typically serves as ground</li>
+                        <li>Ground should have low impedance to handle return currents properly</li>
+                    </ul>
+                </div>
+                
+                <h4>Common Pin Configurations</h4>
+                <p>Understanding these common pin configurations will help you interpret circuit diagrams and component datasheets:</p>
+                
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Configuration</th>
+                                <th>Symbol/Term</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Input Pin</td>
+                                <td>IN</td>
+                                <td>Receives signals or voltage levels, high impedance, sensitive to floating</td>
+                            </tr>
+                            <tr>
+                                <td>Output Pin</td>
+                                <td>OUT</td>
+                                <td>Provides signals or voltage levels, can source or sink current</td>
+                            </tr>
+                            <tr>
+                                <td>Bidirectional Pin</td>
+                                <td>I/O</td>
+                                <td>Can function as either input or output depending on configuration</td>
+                            </tr>
+                            <tr>
+                                <td>Open Drain/Collector</td>
+                                <td>OD/OC</td>
+                                <td>Can pull LOW or float, requires external pull-up for HIGH</td>
+                            </tr>
+                            <tr>
+                                <td>Push-Pull Output</td>
+                                <td>PP</td>
+                                <td>Can actively drive both HIGH and LOW states</td>
+                            </tr>
+                            <tr>
+                                <td>Analog Pin</td>
+                                <td>A/AN</td>
+                                <td>Handles continuous voltage ranges rather than just digital HIGH/LOW</td>
+                            </tr>
+                            <tr>
+                                <td>Power Pin</td>
+                                <td>VCC/VDD</td>
+                                <td>Supplies positive voltage to the component</td>
+                            </tr>
+                            <tr>
+                                <td>Ground Pin</td>
+                                <td>GND/VSS</td>
+                                <td>Reference voltage (0V) connection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section>
+                <h3>Practice Exercises</h3>
+                <ol>
+                    <li>
+                        <p>Which of the following is an example of a floating pin?</p>
+                        <ul>
+                            <li>a) An input pin connected directly to 5V</li>
+                            <li>b) An unused microcontroller pin with no connections</li>
+                            <li>c) An output pin driving a LED through a resistor</li>
+                            <li>d) A ground pin connected to the negative terminal of a battery</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>Design a simple circuit using a push button that triggers a digital input pin. Include proper treatment to prevent floating pin issues.</p>
+                    </li>
+                    <li>
+                        <p>A digital circuit is randomly switching between states even though it should remain stable. List three possible causes related to voltage or pin configurations, and how you would troubleshoot each one.</p>
+                    </li>
+                    <li>
+                        <p>Calculate the voltage at point B in the following voltage divider circuit with R1 = 1kΩ and R2 = 2kΩ, connected to a 9V source.</p>
+                    </li>
+                    <li>
+                        <p>Explain why connecting a 5V device's output directly to a 3.3V microcontroller's input could damage the microcontroller.</p>
+                    </li>
+                </ol>
+                
+                <p>Try to solve these exercises on your own, and check the solutions in the next lesson.</p>
+            </section>
+            
+            <section>
+                <h3>Summary</h3>
+                <ul>
+                    <li>Voltage is the electric potential difference between two points that drives current in a circuit</li>
+                    <li>Digital logic uses voltage thresholds to determine HIGH (1) and LOW (0) states</li>
+                    <li>Floating pins occur when input pins have no defined connection, causing unpredictable behavior</li>
+                    <li>Always use pull-up or pull-down resistors to prevent floating pins in digital inputs</li>
+                    <li>Ground provides the reference point (0V) for measuring all other voltages in a circuit</li>
+                    <li>Different pin configurations (input, output, open-drain, etc.) have specific uses and requirements</li>
+                </ul>
+                <p>In the next lesson, we'll build on these fundamental concepts to discuss specific circuit components and their characteristics.</p>
+            </section>
+            
+        </article>
+
+        <div class="lesson-navigation">
+            <a href="lesson3.html" class="prev-next-button">← Previous: Logic Gates</a>
+            <a href="lesson4.html" class="prev-next-button">Next: Circuit Components →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Circuit Theory & Robotics. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
